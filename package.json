@@ -1,0 +1,61 @@
+{
+  "name": "elisai",
+  "version": "1.0.0",
+  "description": "AI-Generated English University Entrance Exam app",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server \" \"npm run client\"",
+    "data:import": "node seeder.js",
+    "data:destroy": "node seeder.js -d",
+    "format": "prettier --write frontend/src/ controllers/ data/ middleware/ models/ routes/ utils/ index.js seeder.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tienq22/TCFTeam_GenAIHackathon2024"
+  },
+  "author": {
+    "name": "Thong Truong",
+    "email": "contact@thongtruong.com"
+  },
+  "contributors": [
+    {
+      "name": "Hong Nguyen",
+      "email": "hongnguyenqtnl@gmail.com"
+    },
+    {
+      "name": "Linh Phuong",
+      "email": "phuonglinh2024@gmail.com"
+    },
+    {
+      "name": "Tien Nguyen",
+      "email": "tiennq310@gmail.com"
+    },
+    {
+      "name": "Linh Le",
+      "email": "lelinh1796@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tienq22/TCFTeam_GenAIHackathon2024/issues"
+  },
+  "homepage": "https://github.com/tienq22/TCFTeam_GenAIHackathon2024#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.2.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5"
+  }
+}
