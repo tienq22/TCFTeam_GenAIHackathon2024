@@ -13,13 +13,13 @@ const questionSchema = new Schema(
 
 const fillInTheBlanksPassageSchema = new Schema(
   {
-    question_type: {
+    questionType: {
       type: String,
       required: true,
       default:
         "Read the passage and fill in the blanks with suitable word or phrase.",
     },
-    number_of_questions: { type: Number, required: true },
+    numberOfQuestions: { type: Number, required: true },
     passage: { type: String, required: true },
     questions: { type: [questionSchema], required: true },
   },
@@ -44,14 +44,14 @@ const passagesSchema = new Schema(
 
 const partSchema = new Schema(
   {
-    question_type: { type: String, required: true },
-    number_of_questions: { type: Number, required: true },
+    questionType: { type: String, required: true },
+    numberOfQuestions: { type: Number, required: true },
     questions: { type: [questionSchema], required: true },
   },
   { _id: false }
 );
 
-const examSchema = new Schema(
+export const examSchema = new Schema(
   {
     parts: {
       part1: { type: partSchema, required: true },
@@ -74,5 +74,4 @@ const examSchema = new Schema(
   { timestamps: true }
 );
 
-const Exam = mongoose.model("Exam", examSchema);
-export default Exam;
+export const Exam = mongoose.model("Exam", examSchema);
