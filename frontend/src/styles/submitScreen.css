@@ -1,0 +1,62 @@
+/* src/styles/submitScreen.css */
+
+body {
+    background-color: #f8f1f6;
+    font-family: 'Arial', sans-serif;
+}
+
+.submit-screen-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.title {
+    font-size: 3rem;
+    color: #ff66a5;
+    font-weight: bold;
+}
+/* Tên đề thi*/
+.subtitle {
+    margin-top: -8rem;
+    font-size: 4rem;
+    color: #6659d6;
+    font-weight: bold;
+}
+/* With AI*/
+.highlight {
+    margin-top: -2.5rem;
+    font-size: 2.5rem;
+    color: #ff00ff;
+    font-weight: bold;
+}
+/*Làm bài ngay*/
+
+.btn-start {
+    background-color: #ff66a5;
+    border-color: #ff66a5;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.5rem 3rem;
+    border-radius: 50px;
+    margin-top: 1.5rem;
+    font-weight: bold;
+}
+
+.btn-start:hover {
+    background-color: #ff3380;
+    border-color: #ff3380;
+}
+
+.image-col {
+    margin-top: 2rem;
+}
+
+.illustration {
+    max-width: 75%;
+    height: auto;
+}
