@@ -20,7 +20,6 @@ const createExam = asyncHandler(async (req, res) => {
   if (exam) {
     res.status(201).json({
       _id: exam._id,
-      parts: exam.parts,
     });
   } else {
     res.status(500);
@@ -28,4 +27,19 @@ const createExam = asyncHandler(async (req, res) => {
   }
 });
 
-export { createExam };
+/**
+ * @desc Get exam by id
+ * @route GET /api/exams/:id
+ * @access Private
+ */
+const getExamById = asyncHandler(async (req, res) => {
+  const exam = await Exam.findById(req.params.id);
+  if (exam) {
+    return res.json(exam);
+  } else {
+    res.status(404);
+    throw new Error("Resource not found");
+  }
+});
+
+export { createExam, getExamById };
