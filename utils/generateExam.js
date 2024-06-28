@@ -3,13 +3,14 @@ import {
   HarmCategory,
   HarmBlockThreshold,
 } from "@google/generative-ai";
-import { examSchema } from "../models/examModel";
-import examSchemaConfig from "../config/examSchema";
+import { stringify } from "flatted";
+import { examSchema } from "../models/examModel.js";
+import examSchemaConfig from "../config/examSchema.js";
 
 const MODEL_NAME = "gemini-1.5-pro";
 const SYSTEM_INSTRUCTION = `
   You are an API designed to assist Vietnamese students in practicing for their University English Entrance Examination. You return JSON formatted according to this Mongoose Schema:
-  ${JSON.stringify(examSchema.obj, null, 2)}
+  ${stringify(examSchema.obj, null, 2)}
   `;
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
