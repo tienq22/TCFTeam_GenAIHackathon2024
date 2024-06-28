@@ -7,6 +7,8 @@ import Loader from "../components/Loader";
 import { useRegisterMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
+import "./styles/registerScreen.css";
+import img_regis from "../asset/img-register.png";
 
 const RegisterScreen = () => {
   const [name, setName] = useState("");
@@ -47,12 +49,14 @@ const RegisterScreen = () => {
     }
   };
   return (
-    <FormContainer>
-      <h1>Đăng Ký</h1>
+    <FormContainer className="container">
+      <div className="col col-half">
+      <h1 className ="title-h1">Đăng Ký Ngay</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId='name' className='my-3'>
-          <Form.Label>Tên</Form.Label>
+          <Form.Label className="font-bold">Tên</Form.Label>
           <Form.Control
+            className="box"
             type='text'
             placeholder='Nhập tên'
             value={name}
@@ -61,8 +65,9 @@ const RegisterScreen = () => {
         </Form.Group>
 
         <Form.Group controlId='email' className='my-3'>
-          <Form.Label>Email</Form.Label>
+          <Form.Label className="font-bold">Email</Form.Label>
           <Form.Control
+            className="box"
             type='email'
             placeholder='Nhập email'
             value={email}
@@ -71,8 +76,9 @@ const RegisterScreen = () => {
         </Form.Group>
 
         <Form.Group controlId='password' className='my-3'>
-          <Form.Label>Mật khẩu</Form.Label>
+          <Form.Label className="font-bold">Mật khẩu</Form.Label>
           <Form.Control
+            className="box"
             type='password'
             placeholder='Nhập mật khẩu'
             value={password}
@@ -81,8 +87,9 @@ const RegisterScreen = () => {
         </Form.Group>
 
         <Form.Group controlId='confirmPassword' className='my-3'>
-          <Form.Label>Nhập lại mật khẩu</Form.Label>
+          <Form.Label className="font-bold">Xác nhận mật khẩu</Form.Label>
           <Form.Control
+            className="box"
             type='password'
             placeholder='Nhập lại mật khẩu'
             value={confirmPassword}
@@ -93,7 +100,7 @@ const RegisterScreen = () => {
         <Button
           type='submit'
           variant='primary'
-          className='mt-2'
+          className='btn-register'
           disabled={isLoading}
         >
           Đăng ký
@@ -108,6 +115,11 @@ const RegisterScreen = () => {
           <Link to={redirect ? `/?redirect=${redirect}` : "/"}>Đăng nhập</Link>
         </Col>
       </Row>
+      </div>
+      <div className=" col col-half">
+      <img src= {img_regis} alt="Name" class="register-img"></img>
+      </div>
+      
     </FormContainer>
   );
 };
