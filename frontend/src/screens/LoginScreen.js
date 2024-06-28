@@ -7,6 +7,8 @@ import Loader from "../components/Loader";
 import { useLoginMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
+import '../styles/login.css';
+
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -39,52 +41,51 @@ const LoginScreen = () => {
       toast.error(error?.data?.message);
     }
   };
+  
   return (
-    <FormContainer>
-      <h1>Đăng Nhập</h1>
-      <Form onSubmit={submitHandler}>
-        <Form.Group controlId='email' className='my-3'>
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type='email'
-            placeholder='Nhập email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Form.Group>
+    <div className="login-wrapper">
+      <div className="login-container">
+        <div className="login-header">
+          <h1>Đăng nhập ngay!!</h1>
+          <p>Chào mừng bạn quay trở lại 👋</p>
+        </div>
+        <Form>
+          <Form.Group controlId="formEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control type="email" placeholder="Nhập địa chỉ Email của bạn" className="custom-placeholder" />
+          </Form.Group>
 
-        <Form.Group controlId='password' className='my-3'>
-          <Form.Label>Mật khẩu</Form.Label>
-          <Form.Control
-            type='password'
-            placeholder='Nhập mật khẩu'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Form.Group>
+          <Form.Group controlId="formPassword">
+            <Form.Label>Mật khẩu</Form.Label>
+            <Form.Control type="password" placeholder="Nhập mật khẩu của bạn" className="custom-placeholder" />
+          </Form.Group>
+          
+          <div className="remember-me">
+            <Form.Check type="checkbox" label="Ghi nhớ mật khẩu" />
+          </div>
+          
+          <div className="forgot-password">
+            <a href="#forgot-password">Quên mật khẩu?</a>
+          </div>
 
-        <Button
-          type='submit'
-          variant='primary'
-          className='mt-2'
-          disabled={isLoading}
-        >
-          Đăng nhập
-        </Button>
-
-        {isLoading && <Loader />}
-      </Form>
-
-      <Row className='py-3'>
-        <Col>
-          Bạn chưa có tài khoản?{" "}
-          <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
-            Đăng ký
-          </Link>
-        </Col>
-      </Row>
-    </FormContainer>
+          <Button variant="primary" type="submit" className="btn-login">
+            Đăng Nhập
+          </Button>
+          
+          
+          <div className="register-link">
+            <p>Nếu bạn chưa có tài khoản? Hãy tạo tài khoản <a href="#register">Đăng ký</a></p>
+          </div>
+        </Form>
+      </div>
+      <div className="image-container">
+        <img src="/login-image.png" alt="Login Illustration" />
+      </div>
+    </div>
   );
 };
 
 export default LoginScreen;
+
+
+
