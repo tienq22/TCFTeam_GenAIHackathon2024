@@ -7,7 +7,8 @@ import Loader from "../components/Loader";
 import { useLoginMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
-import '../styles/login.css';  
+import "./styles1/logintrue.css";
+//import '../styles/login.css'; 
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -45,9 +46,10 @@ const LoginScreen = () => {
   return (
     <div className="login-wrapper">
       <div className="login-container">
-        <h1 className="logo">ElisAI</h1>
-        <h1>Đăng nhập ngay</h1>
+      <div className="login-header">
+        <h1>Đăng nhập ngay!!</h1>
         <p>Chào mừng bạn quay trở lại 👋</p>
+        </div>
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="formEmail">
             <Form.Label>Email</Form.Label>
@@ -76,6 +78,7 @@ const LoginScreen = () => {
             <a href="#forgot-password" className="forgot-password">Quên mật khẩu?</a>
           </div>
 
+
           <Button variant="primary" type="submit" className="btn-login">
             Đăng Nhập
           </Button>
@@ -90,7 +93,7 @@ const LoginScreen = () => {
         </Form>
       </div>
       <div className="image-container">
-        <img src="/login.png" alt="Login Illustration" />
+        <img src="/login-image.png" alt="Login Illustration" />
       </div>
     </div>
   );
