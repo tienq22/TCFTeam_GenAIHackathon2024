@@ -17,25 +17,28 @@
   }
   
   .subtitle {
-    font-size: 2.5rem;
-    color: #3a3b3c;
+    font-size: 3.2rem;
+    color: #5d63c5;
     margin-bottom: 1rem;
+    font-weight: bold; /* In đậm chữ */
   }
-  
+  /*With AI */
   .highlight {
     color: #ff00ff;
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 2rem;
+    font-weight: bold; /* In đậm chữ */
   }
-  
+  /* Làm bài Ngay*/
   .btn-start {
     background-color: #ff66a5;
     border-color: #ff66a5;
     color: #fff;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 2.5rem;
     font-size: 1.25rem;
-    border-radius: 5px;
+    border-radius: 40px;
     margin-bottom: 2rem;
+    font-weight: bold; /* In đậm chữ */
   }
   
   .btn-start:hover {
@@ -49,7 +52,7 @@
   }
   
   .illustration {
-    max-width: 100%;
+    max-width: 95%;
     height: auto;
     border-radius: 10px;
   }
