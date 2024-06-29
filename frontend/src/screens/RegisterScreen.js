@@ -1,25 +1,22 @@
+// src/screens/LoginScreen.js
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import FormContainer from "../components/FormContainer";
 import Loader from "../components/Loader";
-import { useRegisterMutation } from "../slices/usersApiSlice";
+import { useLoginMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
-import "./styles/registerScreen.css";
-import img_regis from "../asset/img-register.png";
+import '../styles/loginScreen.css';
 
-const RegisterScreen = () => {
-  const [name, setName] = useState("");
+const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [register, { isLoading }] = useRegisterMutation();
+  const [login, { isLoading }] = useLoginMutation();
 
   const { userInfo } = useSelector((state) => state.auth);
 
@@ -35,93 +32,68 @@ const RegisterScreen = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      toast.error("Mật khẩu không khớp");
-    } else {
-      try {
-        const res = await register({ name, email, password }).unwrap();
-        dispatch(setCredentials({ ...res }));
-        navigate(redirect);
-      } catch (error) {
-        console.log(error);
-        toast.error(error?.data?.message);
-      }
+    try {
+      const res = await login({ email, password }).unwrap();
+      dispatch(setCredentials({ ...res }));
+      navigate(redirect);
+    } catch (error) {
+      console.log(error);
+      toast.error(error?.data?.message);
     }
   };
+
   return (
-    <FormContainer className="container">
-      <div className="col col-half">
-      <h1 className ="title-h1">Đăng Ký Ngay</h1>
-      <Form onSubmit={submitHandler}>
-        <Form.Group controlId='name' className='my-3'>
-          <Form.Label className="font-bold">Tên</Form.Label>
-          <Form.Control
-            className="box"
-            type='text'
-            placeholder='Nhập tên'
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </Form.Group>
+    <div className="login-wrapper">
+      <div className="login-container">
+        <h1 className="logo">ElisAI</h1>
+        <h1>Đăng nhập ngay</h1>
+        <p>Chào mừng bạn quay trở lại 👋</p>
+        <Form onSubmit={submitHandler}>
+          <Form.Group controlId="formEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Nhập địa chỉ Email của bạn"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="custom-placeholder"
+            />
+          </Form.Group>
 
-        <Form.Group controlId='email' className='my-3'>
-          <Form.Label className="font-bold">Email</Form.Label>
-          <Form.Control
-            className="box"
-            type='email'
-            placeholder='Nhập email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </Form.Group>
+          <Form.Group controlId="formPassword">
+            <Form.Label>Mật khẩu</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Nhập mật khẩu của bạn"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="custom-placeholder"
+            />
+          </Form.Group>
 
-        <Form.Group controlId='password' className='my-3'>
-          <Form.Label className="font-bold">Mật khẩu</Form.Label>
-          <Form.Control
-            className="box"
-            type='password'
-            placeholder='Nhập mật khẩu'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </Form.Group>
+          <div className="d-flex justify-content-between align-items-center">
+            <Form.Check type="checkbox" label="Ghi nhớ mật khẩu" />
+            <a href="#forgot-password" className="forgot-password">Quên mật khẩu?</a>
+          </div>
 
-        <Form.Group controlId='confirmPassword' className='my-3'>
-          <Form.Label className="font-bold">Xác nhận mật khẩu</Form.Label>
-          <Form.Control
-            className="box"
-            type='password'
-            placeholder='Nhập lại mật khẩu'
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-        </Form.Group>
+          <Button variant="primary" type="submit" className="btn-login">
+            Đăng Nhập
+          </Button>
 
-        <Button
-          type='submit'
-          variant='primary'
-          className='btn-register'
-          disabled={isLoading}
-        >
-          Đăng ký
-        </Button>
+          {isLoading && <Loader />}
 
-        {isLoading && <Loader />}
-      </Form>
-
-      <Row className='py-3'>
-        <Col>
-          Đã có tài khoản?{" "}
-          <Link to={redirect ? `/?redirect=${redirect}` : "/"}>Đăng nhập</Link>
-        </Col>
-      </Row>
+          <Row className="py-3">
+            <Col className="register-link">
+              Nếu bạn chưa có tài khoản? <Link to="/register">Đăng ký</Link>
+            </Col>
+          </Row>
+        </Form>
       </div>
-      <div className=" col col-half">
-      <img src= {img_regis} alt="Name" class="register-img"></img>
+      <div className="image-container">
+        <img src="/login.png" alt="Login Illustration" />
       </div>
-      
-    </FormContainer>
+    </div>
   );
 };
 
-export default RegisterScreen;
+export default LoginScreen;
