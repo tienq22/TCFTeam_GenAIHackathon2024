@@ -1,25 +1,29 @@
 import asyncHandler from "../middleware/asyncHandler.js";
-import { Exam } from "../models/examModel.js";
 import generateExam from "../utils/generateExam.js";
+import Exam from "../models/examModel.js";
 
-/**
- * @desc Create a new exam
- * @route POST /api/exams
- * @access Private
- */
 const createExam = asyncHandler(async (req, res) => {
   const result = await generateExam();
   if (result.error) {
     res.status(502);
-    throw new Error("Bad Gateway: Third-party API error", result.error);
+    throw new Error(`Bad Gateway: Third-party API error: ${result.error}`);
   }
-  const examText = result.response.candidates[0].content.parts[0].text;
-  const examData = JSON.parse(examText);
+
+  const examData = {
+    parts: {},
+  };
+
+  result.response.forEach((partResponse, index) => {
+    const partNumber = `part${index + 1}`;
+    examData.parts[partNumber] = JSON.parse(
+      partResponse.candidates[0].content.parts[0].text
+    );
+  });
 
   const exam = await Exam.create(examData);
   if (exam) {
     res.status(201).json({
-      _id: exam._id,
+      examId: exam._id,
     });
   } else {
     res.status(500);

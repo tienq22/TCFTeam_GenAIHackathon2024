@@ -19,7 +19,6 @@ const fillInTheBlanksPassageSchema = new Schema(
       default:
         "Read the passage and fill in the blanks with suitable word or phrase.",
     },
-    numberOfQuestions: { type: Number, required: true },
     passage: { type: String, required: true },
     questions: { type: [questionSchema], required: true },
   },
@@ -28,6 +27,11 @@ const fillInTheBlanksPassageSchema = new Schema(
 
 const passageSchema = new Schema(
   {
+    questionType: {
+      type: String,
+      required: true,
+      default: "Read the passage and answer the questions.",
+    },
     passage: { type: String, required: true },
     questions: { type: [questionSchema], required: true },
   },
@@ -36,6 +40,11 @@ const passageSchema = new Schema(
 
 const passagesSchema = new Schema(
   {
+    questionType: {
+      type: String,
+      required: true,
+      default: "Read the paired passages and answer the questions.",
+    },
     passages: { type: [String], required: true },
     questions: { type: [questionSchema], required: true },
   },
@@ -45,13 +54,12 @@ const passagesSchema = new Schema(
 const partSchema = new Schema(
   {
     questionType: { type: String, required: true },
-    numberOfQuestions: { type: Number, required: true },
     questions: { type: [questionSchema], required: true },
   },
   { _id: false }
 );
 
-export const examSchema = new Schema(
+const examSchema = new Schema(
   {
     parts: {
       part1: { type: partSchema, required: true },
@@ -60,10 +68,7 @@ export const examSchema = new Schema(
       part4: { type: partSchema, required: true },
       part5: { type: partSchema, required: true },
       part6: { type: partSchema, required: true },
-      part7: {
-        type: fillInTheBlanksPassageSchema,
-        required: true,
-      },
+      part7: { type: fillInTheBlanksPassageSchema, required: true },
       part8: { type: passageSchema, required: true },
       part9: { type: passagesSchema, required: true },
       part10: { type: partSchema, required: true },
@@ -74,4 +79,5 @@ export const examSchema = new Schema(
   { timestamps: true }
 );
 
-export const Exam = mongoose.model("Exam", examSchema);
+const Exam = mongoose.model("Exam", examSchema);
+export default Exam;
