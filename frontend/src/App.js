@@ -4,8 +4,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import LoginScreen from './screens/LoginScreen';
-import SubmitScreen from './screens/SubmitScreen'; // Import component mới
 
 
 const App = () => {
