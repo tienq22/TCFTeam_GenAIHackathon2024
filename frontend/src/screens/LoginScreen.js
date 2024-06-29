@@ -1,14 +1,13 @@
+
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import FormContainer from "../components/FormContainer.js";
 import Loader from "../components/Loader";
 import { useLoginMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
-import '../styles/login.css';
-
+import '../styles/login.css';  
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -41,51 +40,59 @@ const LoginScreen = () => {
       toast.error(error?.data?.message);
     }
   };
-  
+
   return (
     <div className="login-wrapper">
       <div className="login-container">
-        <div className="login-header">
-          <h1>Đăng nhập ngay!!</h1>
-          <p>Chào mừng bạn quay trở lại 👋</p>
-        </div>
-        <Form>
+        <h1 className="logo">ElisAI</h1>
+        <h1>Đăng nhập ngay</h1>
+        <p>Chào mừng bạn quay trở lại 👋</p>
+        <Form onSubmit={submitHandler}>
           <Form.Group controlId="formEmail">
             <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Nhập địa chỉ Email của bạn" className="custom-placeholder" />
+            <Form.Control
+              type="email"
+              placeholder="Nhập địa chỉ Email của bạn"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="custom-placeholder"
+            />
           </Form.Group>
 
           <Form.Group controlId="formPassword">
             <Form.Label>Mật khẩu</Form.Label>
-            <Form.Control type="password" placeholder="Nhập mật khẩu của bạn" className="custom-placeholder" />
+            <Form.Control
+              type="password"
+              placeholder="Nhập mật khẩu của bạn"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="custom-placeholder"
+            />
           </Form.Group>
-          
-          <div className="remember-me">
+
+          <div className="d-flex justify-content-between align-items-center">
             <Form.Check type="checkbox" label="Ghi nhớ mật khẩu" />
-          </div>
-          
-          <div className="forgot-password">
-            <a href="#forgot-password">Quên mật khẩu?</a>
+            <a href="#forgot-password" className="forgot-password">Quên mật khẩu?</a>
           </div>
 
           <Button variant="primary" type="submit" className="btn-login">
             Đăng Nhập
           </Button>
-          
-          
-          <div className="register-link">
-            <p>Nếu bạn chưa có tài khoản? Hãy tạo tài khoản <a href="#register">Đăng ký</a></p>
-          </div>
+
+          {isLoading && <Loader />}
+
+          <Row className="py-3">
+            <Col className="register-link">
+              Nếu bạn chưa có tài khoản? <Link to="/register">Đăng ký</Link>
+            </Col>
+          </Row>
         </Form>
       </div>
       <div className="image-container">
-        <img src="/login-image.png" alt="Login Illustration" />
+        <img src="/login.png" alt="Login Illustration" />
       </div>
     </div>
   );
 };
 
 export default LoginScreen;
-
-
-
