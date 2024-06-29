@@ -19,9 +19,8 @@ import RegisterScreen from "./screens/RegisterScreen";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
-      <Route index={true} element={<LoginScreen />} /> {/* Thay đổi màn hình mặc định */}
-      <Route path='/submit' element={<SubmitScreen />} /> {/* Thay đổi URL của SubmitScreen */}
-      <Route path='/register' element={<RegisterScreen />} />
+         <Route index={true} path='/' element={<LoginScreen />} />
+         <Route path='/register' element={<RegisterScreen />} />
       
       <Route path='' element={<PrivateRoute />}>
         <Route path='/main' element={<HomeScreen />} />
