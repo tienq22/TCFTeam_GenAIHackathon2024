@@ -1,5 +1,10 @@
+.navbar {
+  background-color: #000000; /* Màu đen */
+  color: #ffffff; /* Màu chữ trắng nếu cần */
+}
+
 .home-screen-container {
-  background-color: #f9f5f7;
+  background-color: #0f0e0e;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

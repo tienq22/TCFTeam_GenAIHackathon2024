@@ -79,6 +79,7 @@ import CountdownTimer from "../components/CountDownTimer";
 import { toast } from "react-toastify";
 import { useGetExamDetailsQuery } from "../slices/examsApiSlice";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useSubmitExamMutation } from "../slices/takeExamApiSlice";
 import "./styles/takeExamScreen.css";
 =======
@@ -99,6 +100,8 @@ import './styles/takeExamScreen.css';
 //   return result;
 // }
 >>>>>>> f4e8046 (Linh)
+=======
+>>>>>>> af15e36 ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
 
 const TakeExamScreen = () => {
   const navigate = useNavigate();
@@ -150,8 +153,6 @@ const TakeExamScreen = () => {
     }
   };
 
-  
-
   return isLoading ? (
     <Loader />
   ) : error ? (
@@ -159,6 +160,7 @@ const TakeExamScreen = () => {
       {error?.status} {JSON.stringify(error?.data)}
     </Message>
   ) : (
+<<<<<<< HEAD
 <<<<<<< HEAD
     <>Exam data load successfully</>
 =======
@@ -240,7 +242,10 @@ const TakeExamScreen = () => {
       </div>
     </div>
 >>>>>>> f4e8046 (Linh)
+=======
+    <>Exam data load successfully</>
+>>>>>>> af15e36 ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
   );
 };
 
-
+export default TakeExamScreen;
