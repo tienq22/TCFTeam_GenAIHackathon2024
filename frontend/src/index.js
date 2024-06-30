@@ -24,7 +24,7 @@ const router = createBrowserRouter(
 
       <Route path='' element={<PrivateRoute />}>
         <Route path='/main' element={<HomeScreen />} />
-        <Route path='/exams/:id' element={<TakeExamScreen />} />
+        <Route path='/take-exam/:id' element={<TakeExamScreen />} />
       </Route>
     </Route>
   )
