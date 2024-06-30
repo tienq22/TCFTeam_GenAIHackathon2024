@@ -13,7 +13,7 @@ const HomeScreen = () => {
     e.preventDefault();
     try {
       //const { examId } = await createExam().unwrap();
-      const examId = "668154c3937c1188eb5cd851"
+      const examId = "668187dcc2b219223c851f64"
       if (examId) {
         navigate(`/exams/${examId}`);
         toast.success("Exam created successfully");

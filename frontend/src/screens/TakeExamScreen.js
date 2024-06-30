@@ -1,69 +1,3 @@
-// import React from "react";
-// import { useNavigate, useParams } from "react-router-dom";
-// import Loader from "../components/Loader";
-// import Message from "../components/Message";
-// import { useGetExamDetailsQuery } from "../slices/examsApiSlice";
-
-// const TakeExamScreen = () => {
-//   const navigate = useNavigate();
-//   const { id: examId } = useParams();
-//   const { data: examData, isLoading, error } = useGetExamDetailsQuery(examId);
-
-//   // const Question = () => {
-//   //   const questionElements = [];
-//   // for (let i = 0; i < questions.length; i++) {
-//   //   questionElements.push(
-//   //     <div key={i}>
-//   //       <h3>Question {i + 1}</h3>
-//   //       <p>{questions[i].question}</p>
-//   //       <p>Options: {questions[i].options.join(', ')}</p>
-//   //       <p>Correct Option: {questions[i].correctOption}</p>
-//   //       <p>Answer Detail: {questions[i].answerDetail}</p>
-//   //     </div>
-//   //   );
-//   // }
-  
-
-
-//   return isLoading ? (
-//     <Loader />
-//   ) : error ? (
-//     <Message variant='danger'>
-//       {error?.status} {JSON.stringify(error?.data)}
-//     </Message>
-//   ) : (
-//     <div>
-//       <div>
-//         <h1>Đề bài</h1>
-//       </div>
-//       <div>
-//         <text>{examData.parts.part1.questionType}</text> <br></br>
-//         <text>{examData.parts.part1.questions[0].question}</text>
-//         <ul class="">
-//           <li>{examData.parts.part1.questions[0].options[0]}</li>
-//           <li>{examData.parts.part1.questions[0].options[1]}</li>
-//           <li>{examData.parts.part1.questions[0].options[2]}</li>
-//           <li>{examData.parts.part1.questions[0].options[3]}</li>
-//         </ul>
-//         <br></br>
-//         <text>{examData.parts.part1.questions[1].question}</text>
-//         <ul class="">
-//           <li>{examData.parts.part1.questions[1].options[0]}</li>
-//           <li>{examData.parts.part1.questions[1].options[1]}</li>
-//           <li>{examData.parts.part1.questions[1].options[2]}</li>
-//           <li>{examData.parts.part1.questions[1].options[3]}</li>
-//         </ul>
-//         {/* <text>{questionElements}</text> */}
-
-        
-//       </div>
-//     </div>
-
-//   );
-
-// };
-
-// export default TakeExamScreen;
 
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -79,8 +13,8 @@ const TakeExamScreen = () => {
   const { id: examId } = useParams();
   const { data: examData, isLoading, error } = useGetExamDetailsQuery(examId);
 
-    function LoadData(data) {
-      data.map((question, index) => (
+  function renderQuestions(questions) {
+    return questions.map((question, index) => (
       <div key={index}>
         <p>{question.question}</p>
         <ul className="options">
@@ -89,8 +23,8 @@ const TakeExamScreen = () => {
           ))}
         </ul>
       </div>
-    ))
-    };
+    ));
+  }
 
   return isLoading ? (
     <Loader />
@@ -110,60 +44,41 @@ const TakeExamScreen = () => {
       <div className="exam-content">
         <div className="question-section sidebar">
           <text>{examData.parts.part1.questionType}</text>
-          {LoadData(examData.parts.part1.questions)}
+          {renderQuestions(examData.parts.part1.questions)}
 
           <text>{examData.parts.part2.questionType}</text>
-          {LoadData(examData.parts.part2.questions)}
-          
-          <text>{examData.parts.part3.questionType}</text>
-          {LoadData(examData.parts.part3.questions)}
+          {renderQuestions(examData.parts.part2.questions)}
 
+        <text>{examData.parts.part3.questionType}</text>
+        {renderQuestions(examData.parts.part3.questions)}
 
-          <h4>{examData.parts.part4.questionType}</h4>
-          {examData.parts.part4.questions.map((question, index) => (
-            <div key={index}>
-              <p>{question.question}</p>
-              <ul className="options">
-                {question.options.map((option, i) => (
-                  <li key={i}>{option}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          <h4>{examData.parts.part5.questionType}</h4>
-          {examData.parts.part5.questions.map((question, index) => (
-            <div key={index}>
-              <p>{question.question}</p>
-              <ul className="options">
-                {question.options.map((option, i) => (
-                  <li key={i}>{option}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          <h4>{examData.parts.part6.questionType}</h4>
-          {examData.parts.part6.questions.map((question, index) => (
-            <div key={index}>
-              <p>{question.question}</p>
-              <ul className="options">
-                {question.options.map((option, i) => (
-                  <li key={i}>{option}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        <text>{examData.parts.part4.questionType}</text>
+        {renderQuestions(examData.parts.part4.questions)}
 
-          {/* <h4>{processData(examData.parts.part7.questionType)}</h4>
-          {examData.parts.part6.questions.map((question, index) => (
-            <div key={index}>
-              <p>{question.question}</p>
-              <ul className="options">
-                {question.options.map((option, i) => (
-                  <li key={i}>{option}</li>
-                ))}
-              </ul>
-            </div>
-          ))} */}
+        <text>{examData.parts.part5.questionType}</text>
+        {renderQuestions(examData.parts.part5.questions)}
+
+        <text>{examData.parts.part6.questionType}</text>
+        {renderQuestions(examData.parts.part6.questions)}
+
+        <text>{examData.parts.part7.questionType}</text>
+        {renderQuestions(examData.parts.part7.questions)}
+
+        <text>{examData.parts.part8.questionType}</text>
+        {renderQuestions(examData.parts.part8.questions)}
+
+        <text>{examData.parts.part9.questionType}</text>
+        {renderQuestions(examData.parts.part9.questions)}
+
+        <text>{examData.parts.part10.questionType}</text>
+        {renderQuestions(examData.parts.part10.questions)}
+
+        <text>{examData.parts.part11.questionType}</text>
+        {renderQuestions(examData.parts.part11.questions)}
+
+        <text>{examData.parts.part12.questionType}</text>
+        {renderQuestions(examData.parts.part12.questions)}
+
           
         </div>
         <div className="sidebar">
