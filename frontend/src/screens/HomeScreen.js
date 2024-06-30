@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { useCreateExamMutation } from "../slices/examsApiSlice";
 import "./styles/homeScreen.css";
 
+
 const HomeScreen = () => {
   const navigate = useNavigate();
   const [createExam, { isLoading }] = useCreateExamMutation();
@@ -12,17 +13,12 @@ const HomeScreen = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-<<<<<<< HEAD
-      const { examId } = await createExam().unwrap();
+      //const { examId } = await createExam().unwrap();
+      const examId = "668154c3937c1188eb5cd851"
       if (examId) {
         navigate(`/take-exam/${examId}`);
         toast.success("Exam created successfully");
       }
-=======
-      // const { examId } = await createExam().unwrap();
-      const examId = "668119b10171f9acbaf1fc85"
-      navigate(`/take-exam/${examId}`);
->>>>>>> 3759b01 (css1-linh)
     } catch (error) {
       toast.error(error?.data?.message);
     }
@@ -42,6 +38,7 @@ const HomeScreen = () => {
       </Row>
       <Row className='justify-content-center text-center'>
         <Col>
+<<<<<<< HEAD
           {isLoading ? (
             <Loader />
           ) : (
@@ -49,6 +46,10 @@ const HomeScreen = () => {
               Làm bài ngay
             </Button>
           )}
+=======
+          <Button className="btn-start" onClick={submitHandler}>Làm bài ngay</Button>
+          {/* {examId && <Loader />} */}
+>>>>>>> f4e8046 (Linh)
         </Col>
       </Row>
       <Row className='justify-content-center'>
