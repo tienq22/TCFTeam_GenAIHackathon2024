@@ -9,23 +9,18 @@ body {
 }
 
 
-
-.top-bar-content span {
-  font-size: 1.2rem;
-}
-
 .login-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 80vh;
-  padding: 5rem;
-  flex-wrap: wrap; /* Thêm dòng này để hỗ trợ co kéo */
+  padding: 2.5rem;
+  /*flex-wrap: wrap; */ /* Thêm dòng này để hỗ trợ co kéo */
 }
-
+/*Padding */
 .login-container {
-  flex: 1;
-  max-width: 1200px;
+  flex: 2;
+  max-width: 100%;
   padding: 2.5rem;
   background-color: #fff;
   border-radius: 20px;
@@ -121,7 +116,7 @@ body {
 }
 
 .image-container img {
-  max-width: 100%; /* Thêm dòng này để ảnh co kéo */
+  /*max-width: 150%; /* Thêm dòng này để ảnh co kéo */
   height: auto;
   border-radius: 20px;
 }
