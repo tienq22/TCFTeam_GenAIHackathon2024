@@ -1,45 +1,49 @@
 import { useNavigate } from "react-router-dom";
-import { Row, Col, Button } from "react-bootstrap";
-import Loader from "../components/Loader";
+import { Button, Container, Row, Col } from 'react-bootstrap';
 import { toast } from "react-toastify";
 import { useCreateExamMutation } from "../slices/examsApiSlice";
+import "./styles/homeScreen.css";
 
 const HomeScreen = () => {
   const navigate = useNavigate();
-  const [createExam, { isLoading }] = useCreateExamMutation();
+  const [createExam] = useCreateExamMutation();
 
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
       const { examId } = await createExam().unwrap();
-      navigate(`/take-exam/${examId}`);
+      if (examId) {
+        navigate(`/exams/${examId}`);
+        toast.success("Exam created successfully");
+      }
     } catch (error) {
       toast.error(error?.data?.message);
     }
   };
 
   return (
-    <>
-      <Row>
+    <Container className="home-screen-container">
+      <Row className="justify-content-center text-center">
         <Col>
-          <h1>Đề thi Tiếng Anh THPT Quốc Gia</h1>
-          <h2>WITH AI</h2>
-
-          {isLoading ? (
-            <Loader />
-          ) : (
-            <Button
-              type='submit'
-              variant='danger'
-              className='mt-2'
-              onClick={submitHandler}
-            >
-              Làm bài ngay
-            </Button>
-          )}
+          <h2 className="subtitle">Đề thi Tiếng anh THPT Quốc Gia</h2>
         </Col>
       </Row>
-    </>
+      <Row className="justify-content-center text-center">
+        <Col>
+          <h3 className="highlight">With AI</h3>
+        </Col>
+      </Row>
+      <Row className="justify-content-center text-center">
+        <Col>
+          <Button className="btn-start" onClick={submitHandler}>Làm bài ngay</Button>
+        </Col>
+      </Row>
+      <Row className="justify-content-center">
+        <Col className="image-col">
+          <img src="/Giaodientruockhilambai.png" alt="Illustration" className="illustration" />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
