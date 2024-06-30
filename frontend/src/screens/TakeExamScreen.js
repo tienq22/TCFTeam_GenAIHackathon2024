@@ -100,6 +100,7 @@ import { useGetExamDetailsQuery } from "../slices/examsApiSlice";
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useSubmitExamMutation } from "../slices/takeExamApiSlice";
 import "./styles/takeExamScreen.css";
 =======
@@ -136,6 +137,11 @@ import CountdownTimer from '../slices/CounterDownTimer';
 >>>>>>> 6ceba03 (Updae css)
 =======
 >>>>>>> b12cae7 ( [FE] update js, css take Exam)
+=======
+import './styles/takeExamScreen.css';
+
+
+>>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
 
 const TakeExamScreen = () => {
   const navigate = useNavigate();
@@ -223,6 +229,19 @@ const TakeExamScreen = () => {
     ));
   }
 
+  function renderQuestions(questions) {
+    return questions.map((question, index) => (
+      <div key={index}>
+        <p>{question.question}</p>
+        <ul className="options">
+          {question.options.map((option, i) => (
+            <li key={i}>{option}</li>
+          ))}
+        </ul>
+      </div>
+    ));
+  }
+
   return isLoading ? (
     <Loader />
   ) : error ? (
@@ -234,6 +253,7 @@ const TakeExamScreen = () => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 68eea1e ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
     <>Exam data load successfully</>
@@ -241,6 +261,10 @@ const TakeExamScreen = () => {
     <div className="exam-container">
       <div className="header">
 <<<<<<< HEAD
+=======
+    <div className="exam-container">
+      <div className="header">
+>>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
         <h1 className="title">Đề 001</h1>
         <div className="user-info">
           <span className="user-icon">abc</span>
@@ -248,6 +272,7 @@ const TakeExamScreen = () => {
         </div>
       </div>
       <div className="exam-content">
+<<<<<<< HEAD
         <div className="col col-half question-section sidebar">
           <h4>{examData.parts.part1.questionType}</h4>
           {examData.parts.part1.questions.map((question, index) => (
@@ -325,24 +350,69 @@ const TakeExamScreen = () => {
               </div>
             ))}
           </div>
+=======
+        <div className="question-section sidebar">
+          <text className="questionType">{examData.parts.part1.questionType}</text>
+          {renderQuestions(examData.parts.part1.questions)}
+
+          <text className="questionType">{examData.parts.part2.questionType}</text>
+          {renderQuestions(examData.parts.part2.questions)}
+
+          <text className="questionType">{examData.parts.part3.questionType}</text>
+          {renderQuestions(examData.parts.part3.questions)}
+
+          <text className="questionType">{examData.parts.part4.questionType}</text>
+          {renderQuestions(examData.parts.part4.questions)}
+
+          <text className="questionType">{examData.parts.part5.questionType}</text>
+          {renderQuestions(examData.parts.part5.questions)}
+
+          <text className="questionType">{examData.parts.part6.questionType}</text>
+          {renderQuestions(examData.parts.part6.questions)}
+
+          <text className="questionType">{examData.parts.part7.questionType}</text>
+          {renderQuestions(examData.parts.part7.questions)}
+
+          <text className="questionType">{examData.parts.part8.questionType}</text>
+          {renderQuestions(examData.parts.part8.questions)}
+
+          <text className="questionType">{examData.parts.part9.questionType}</text>
+          {renderQuestions(examData.parts.part9.questions)}
+
+          <text className="questionType">{examData.parts.part10.questionType}</text>
+          {renderQuestions(examData.parts.part10.questions)}
+
+          <text className="questionType">{examData.parts.part11.questionType}</text>
+          {renderQuestions(examData.parts.part11.questions)}
+          <text className="questionType">{examData.parts.part12.questionType}</text>
+          {renderQuestions(examData.parts.part12.questions)}
+>>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
         </div>
         <div className="sidebar">
           <div className="timer">
             <span>Thời gian còn lại:</span>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <div className="time">{formatTime(timeLeft)}</div>
 >>>>>>> 68eea1e ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
+=======
+            <div className="time">59:30</div>
+>>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
           </div>
           <button className="submit-btn">NỘP BÀI</button>
           <div className="question-list question-list-scroll">
             {[...Array(10).keys()].map((num) => (
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
               <div key={num} className="question-item">
                 <span>{num + 1}</span>
                 <div className="options">
                   {['A', 'B', 'C', 'D'].map((option) => (
                     <button key={option}>{option}</button>
+<<<<<<< HEAD
 =======
               <div key={num} className="question-item-right">
                 <span className="question-number">{num + 1}</span>
@@ -380,6 +450,8 @@ const TakeExamScreen = () => {
                   {['A', 'B', 'C', 'D'].map((option) => (
                     <button key={option} className="option-button-right">{option}</button>
 >>>>>>> b12cae7 ( [FE] update js, css take Exam)
+=======
+>>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
                   ))}
                 </div>
               </div>
@@ -388,6 +460,7 @@ const TakeExamScreen = () => {
         </div>
       </div>
     </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -403,6 +476,8 @@ const TakeExamScreen = () => {
 =======
 
 >>>>>>> b12cae7 ( [FE] update js, css take Exam)
+=======
+>>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
   );
 };
 
