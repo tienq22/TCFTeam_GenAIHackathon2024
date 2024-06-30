@@ -16,7 +16,17 @@ const TakeExamScreen = () => {
       {error?.status} {JSON.stringify(error?.data)}
     </Message>
   ) : (
-    <>Exam data load successfully</>
+    <div>
+        <div>
+          <h1>Đề bài</h1>
+        </div>
+        <div>
+
+        </div>
+    </div>
+    
+
+    
   );
 };
 
