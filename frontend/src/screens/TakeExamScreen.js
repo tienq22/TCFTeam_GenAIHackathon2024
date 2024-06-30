@@ -70,29 +70,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { useGetExamDetailsQuery } from "../slices/examsApiSlice";
-import './styles/takeExamScreen.css';
-
-// function processData(data) {
-//   const result = [];
-//   for (let i = 0; i < data.length; i++) {
-//     const item = data[i];
-//     result.push(
-//       <tr key={i}>
-//         <td>{item.name}</td>
-//         <td>{item.age}</td>
-//         <td>{item.city}</td>
-//       </tr>
-//     );
-//   }
-//   return result;
-// }
 
 const TakeExamScreen = () => {
   const navigate = useNavigate();
   const { id: examId } = useParams();
   const { data: examData, isLoading, error } = useGetExamDetailsQuery(examId);
-
-  
 
   return isLoading ? (
     <Loader />
@@ -101,84 +83,8 @@ const TakeExamScreen = () => {
       {error?.status} {JSON.stringify(error?.data)}
     </Message>
   ) : (
-    <div className="exam-container">
-      <div className="header">
-        <h1 className="title">Đề 001</h1>
-        <div className="user-info">
-          <span className="user-icon">abc</span>
-          <button className="logout-btn">THOÁT</button>
-        </div>
-      </div>
-      <div className="exam-content">
-        <div className="col col-half question-section sidebar">
-          <h4>{examData.parts.part1.questionType}</h4>
-          {examData.parts.part1.questions.map((question, index) => (
-            <div key={index}>
-              <p>{question.question}</p>
-              <ul className="options">
-                {question.options.map((option, i) => (
-                  <li key={i}>{option}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          <h4>{examData.parts.part2.questionType}</h4>
-          {examData.parts.part2.questions.map((question, index) => (
-            <div key={index}>
-              <p>{question.question}</p>
-              <ul className="options">
-                {question.options.map((option, i) => (
-                  <li key={i}>{option}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          <h4>{examData.parts.part3.questionType}</h4>
-          {examData.parts.part3.questions.map((question, index) => (
-            <div key={index}>
-              <p>{question.question}</p>
-              <ul className="options">
-                {question.options.map((option, i) => (
-                  <li key={i}>{option}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          <h4>{examData.parts.part4.questionType}</h4>
-          {examData.parts.part4.questions.map((question, index) => (
-            <div key={index}>
-              <p>{question.question}</p>
-              <ul className="options">
-                {question.options.map((option, i) => (
-                  <li key={i}>{option}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          
-        </div>
-        <div className=" col col-half sidebar">
-          <div className="timer">
-            <span>Thời gian còn lại:</span>
-            <div className="time">59:30</div>
-          </div>
-          <button className="submit-btn">NỘP BÀI</button>
-          <div className="question-list question-list-scroll">
-            {[...Array(10).keys()].map((num) => (
-              <div key={num} className="question-item">
-                <span>{num + 1}</span>
-                <div className="options">
-                  {['A', 'B', 'C', 'D'].map((option) => (
-                    <button key={option}>{option}</button>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
+    <>Exam data load successfully</>
   );
 };
 
-
+export default TakeExamScreen;
