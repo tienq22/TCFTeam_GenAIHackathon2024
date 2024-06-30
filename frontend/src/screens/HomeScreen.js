@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { useCreateExamMutation } from "../slices/examsApiSlice";
 import "./styles/homeScreen.css";
 
+
 const HomeScreen = () => {
   const navigate = useNavigate();
   const [createExam] = useCreateExamMutation();
@@ -11,7 +12,8 @@ const HomeScreen = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const { examId } = await createExam().unwrap();
+      //const { examId } = await createExam().unwrap();
+      const examId = "668154c3937c1188eb5cd851"
       if (examId) {
         navigate(`/exams/${examId}`);
         toast.success("Exam created successfully");
@@ -36,6 +38,7 @@ const HomeScreen = () => {
       <Row className="justify-content-center text-center">
         <Col>
           <Button className="btn-start" onClick={submitHandler}>Làm bài ngay</Button>
+          {/* {examId && <Loader />} */}
         </Col>
       </Row>
       <Row className="justify-content-center">
