@@ -1,10 +1,9 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import { Button, Container, Row, Col } from 'react-bootstrap';
-import "./styles1/homeScreen.css";
+import "./styles/homeScreen.css";
 
 const HomeScreen = () => {
-  const submitHandler = () => {};
-
   return (
     <Container className="home-screen-container">
       <Row className="justify-content-center text-center">
@@ -19,17 +18,12 @@ const HomeScreen = () => {
       </Row>
       <Row className="justify-content-center text-center">
         <Col>
-          <h1>Đề thi Tiếng Anh THPT Quốc Gia</h1>
-          <h2>WITH AI</h2>
-
-          <Button
-            type='submit'
-            variant='danger'
-            className='mt-2'
-            onClick={submitHandler}
-          >
-            Làm bài ngay
-          </Button>
+          <Button className="btn-start">Làm bài ngay</Button>
+        </Col>
+      </Row>
+      <Row className="justify-content-center">
+        <Col className="image-col">
+          <img src="/Giaodientruockhilambai.png" alt="Illustration" className="illustration" />
         </Col>
       </Row>
     </Container>
