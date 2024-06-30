@@ -73,17 +73,20 @@ const fetchPart = async (partSchema, partNumber) => {
 };
 
 const generateExam = async () => {
-  const allPartsResults = [];
+  const fetchPartPromises = [];
   for (let i = 1; i <= 12; i++) {
     const partSchema =
       JSON.parse(examSchemaConfig).properties.parts.properties[`part${i}`];
-    const result = await fetchPart(partSchema, i);
+    fetchPartPromises.push(fetchPart(partSchema, i));
+  }
+  const allPartsResults = await Promise.all(fetchPartPromises);
+  for (let result of allPartsResults) {
     if (result.error) {
       return { error: result.error };
     }
-    allPartsResults.push(result.response);
   }
-  return { response: allPartsResults };
+
+  return { response: allPartsResults.map((result) => result.response) };
 };
 
 export default generateExam;
