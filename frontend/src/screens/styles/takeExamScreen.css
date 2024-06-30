@@ -138,3 +138,7 @@
     max-height: 60vh; /* Chiều cao tối đa cho danh sách câu hỏi */
     overflow-y: auto; /* Kích hoạt thanh cuộn dọc cho danh sách câu hỏi */
   }
+  .questionType{
+    font-weight: bold;
+    font-style: italic;
+  }

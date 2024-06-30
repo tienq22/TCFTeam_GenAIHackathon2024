@@ -1,10 +1,12 @@
 
-import React from "react";
+//import React from "react";
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { useGetExamDetailsQuery } from "../slices/examsApiSlice";
 import './styles/takeExamScreen.css';
+import CountdownTimer from '../slices/CounterDownTimer';
 
 
 
@@ -12,6 +14,8 @@ const TakeExamScreen = () => {
   const navigate = useNavigate();
   const { id: examId } = useParams();
   const { data: examData, isLoading, error } = useGetExamDetailsQuery(examId);
+  const [answers, setAnswers] = useState(Array(50).fill(null));
+
 
   function renderQuestions(questions) {
     return questions.map((question, index) => (
@@ -26,6 +30,14 @@ const TakeExamScreen = () => {
     ));
   }
 
+  const handleAnswerChange = (questionNum, option) => {
+    const updatedAnswers = [...answers];
+    updatedAnswers[questionNum] = option; // Assuming questionId starts from 1
+    setAnswers(updatedAnswers);
+  };
+ 
+
+
   return isLoading ? (
     <Loader />
   ) : error ? (
@@ -35,69 +47,78 @@ const TakeExamScreen = () => {
   ) : (
     <div className="exam-container">
       <div className="header">
-        <h1 className="title">Đề 001</h1>
+        <h1 className="title">Đề bài</h1>
         <div className="user-info">
-          <span className="user-icon">abc</span>
           <button className="logout-btn">THOÁT</button>
         </div>
       </div>
       <div className="exam-content">
         <div className="question-section sidebar">
-          <text>{examData.parts.part1.questionType}</text>
+          <text className="questionType">{examData.parts.part1.questionType}</text>
           {renderQuestions(examData.parts.part1.questions)}
 
-          <text>{examData.parts.part2.questionType}</text>
+          <text className="questionType">{examData.parts.part2.questionType}</text>
           {renderQuestions(examData.parts.part2.questions)}
 
-        <text>{examData.parts.part3.questionType}</text>
-        {renderQuestions(examData.parts.part3.questions)}
+          <text className="questionType">{examData.parts.part3.questionType}</text>
+          {renderQuestions(examData.parts.part3.questions)}
 
-        <text>{examData.parts.part4.questionType}</text>
-        {renderQuestions(examData.parts.part4.questions)}
+          <text className="questionType">{examData.parts.part4.questionType}</text>
+          {renderQuestions(examData.parts.part4.questions)}
 
-        <text>{examData.parts.part5.questionType}</text>
-        {renderQuestions(examData.parts.part5.questions)}
+          <text className="questionType">{examData.parts.part5.questionType}</text>
+          {renderQuestions(examData.parts.part5.questions)}
 
-        <text>{examData.parts.part6.questionType}</text>
-        {renderQuestions(examData.parts.part6.questions)}
+          <text className="questionType">{examData.parts.part6.questionType}</text>
+          {renderQuestions(examData.parts.part6.questions)}
 
-        <text>{examData.parts.part7.questionType}</text>
-        {renderQuestions(examData.parts.part7.questions)}
+          <text className="questionType">{examData.parts.part7.questionType}</text>
+          <text>{examData.parts.part7.passage}</text>
+          {renderQuestions(examData.parts.part7.questions)}
 
-        <text>{examData.parts.part8.questionType}</text>
-        {renderQuestions(examData.parts.part8.questions)}
+          <text className="questionType">{examData.parts.part8.questionType}</text>
+          <text>{examData.parts.part7.passage}</text>
+          {renderQuestions(examData.parts.part8.questions)}
 
-        <text>{examData.parts.part9.questionType}</text>
-        {renderQuestions(examData.parts.part9.questions)}
+          <text className="questionType">{examData.parts.part9.questionType}</text>
+          <text>{examData.parts.part9.passages[0]}</text>
+          <text>{examData.parts.part9.passages[1]}</text>
+          {renderQuestions(examData.parts.part9.questions)}
 
-        <text>{examData.parts.part10.questionType}</text>
-        {renderQuestions(examData.parts.part10.questions)}
+          <text className="questionType">{examData.parts.part10.questionType}</text>
+          {renderQuestions(examData.parts.part10.questions)}
 
-        <text>{examData.parts.part11.questionType}</text>
-        {renderQuestions(examData.parts.part11.questions)}
+          <text className="questionType">{examData.parts.part11.questionType}</text>
+          {renderQuestions(examData.parts.part11.questions)}
 
-        <text>{examData.parts.part12.questionType}</text>
-        {renderQuestions(examData.parts.part12.questions)}
+          <text className="questionType">{examData.parts.part12.questionType}</text>
+          {renderQuestions(examData.parts.part12.questions)}
 
-          
         </div>
         <div className="sidebar">
           <div className="timer">
             <span>Thời gian còn lại:</span>
-            <div className="time">59:30</div>
+            <div className="time:">{<CountdownTimer/>}</div>
           </div>
           <button className="submit-btn">NỘP BÀI</button>
           <div className="question-list question-list-scroll">
-            {[...Array(10).keys()].map((num) => (
+            {
+            [...Array(50).keys()].map((num) => (
               <div key={num} className="question-item">
                 <span>{num + 1}</span>
                 <div className="options">
-                  {['A', 'B', 'C', 'D'].map((option) => (
-                    <button key={option}>{option}</button>
+                  {['A', 'B', 'C', 'D'].map((option,i) => (
+                    <button  
+                    key={option}                   
+                    OnClick={() => handleAnswerChange(num+1, i) }
+                  >
+                    {option}
+                    </button>
                   ))}
                 </div>
               </div>
             ))}
+             
           </div>
         </div>
       </div>
