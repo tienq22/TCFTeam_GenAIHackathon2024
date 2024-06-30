@@ -12,11 +12,17 @@ const HomeScreen = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
+<<<<<<< HEAD
       const { examId } = await createExam().unwrap();
       if (examId) {
         navigate(`/take-exam/${examId}`);
         toast.success("Exam created successfully");
       }
+=======
+      // const { examId } = await createExam().unwrap();
+      const examId = "668119b10171f9acbaf1fc85"
+      navigate(`/take-exam/${examId}`);
+>>>>>>> 3759b01 (css1-linh)
     } catch (error) {
       toast.error(error?.data?.message);
     }

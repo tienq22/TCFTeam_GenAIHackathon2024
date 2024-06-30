@@ -66,65 +66,8 @@ const TakeExamScreen = () => {
     <Message variant='danger'>
       {error?.status} {JSON.stringify(error?.data)}
     </Message>
-  ) : !examData ? (
-    <Message variant='danger'>Exam not found.</Message>
   ) : (
-    <div className='exam-container'>
-      <div className='header'>
-        <h1 className='title'>Đề bài</h1>
-        <div className='user-info'>
-          <button className='logout-btn'>THOÁT</button>
-        </div>
-      </div>
-      <div className='exam-content'>
-        <div className='question-section sidebar'>
-          {Object.keys(examData.parts).map((partKey) => (
-            <div key={partKey}>
-              <p className='questionType'>
-                {examData.parts[partKey].questionType}
-              </p>
-              {examData.parts[partKey].passage && (
-                <p>{examData.parts[partKey].passage}</p>
-              )}
-              {renderQuestions(examData.parts[partKey].questions)}
-            </div>
-          ))}
-        </div>
-        <div className='sidebar'>
-          <div className='timer'>
-            <span>Thời gian còn lại:</span>
-            <div className='time'>{<CountdownTimer />}</div>
-          </div>
-          <Form onSubmit={submitHandler}>
-            {examSubmitLoading ? (
-              <Loader />
-            ) : (
-              <button type='submit' className='submit-btn'>
-                NỘP BÀI
-              </button>
-            )}
-            {[...Array(50).keys()].map((num) => (
-              <div key={num} className='question-item'>
-                <span>{num + 1}</span>
-                <div className='options'>
-                  {["A", "B", "C", "D"].map((option, i) => (
-                    <Form.Check
-                      inline
-                      label={option}
-                      type='radio'
-                      name={`question-${num}`}
-                      key={i}
-                      checked={userAnswers[num] === i}
-                      onChange={() => handleAnswerChange(num, i)}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </Form>
-        </div>
-      </div>
-    </div>
+    <>Exam data load successfully</>
   );
 };
 
