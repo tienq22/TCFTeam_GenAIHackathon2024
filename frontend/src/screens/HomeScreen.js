@@ -1,8 +1,27 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import { Button, Container, Row, Col } from 'react-bootstrap';
+import { toast } from "react-toastify";
+import { useCreateExamMutation } from "../slices/examsApiSlice";
 import "./styles/homeScreen.css";
 
 const HomeScreen = () => {
+  const navigate = useNavigate();
+  const [createExam] = useCreateExamMutation();
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const { examId } = await createExam().unwrap();
+      if (examId) {
+        navigate(`/exams/${examId}`);
+        toast.success("Exam created successfully");
+      }
+    } catch (error) {
+      toast.error(error?.data?.message);
+    }
+  };
+
   return (
     <Container className="home-screen-container">
       <Row className="justify-content-center text-center">
@@ -17,7 +36,7 @@ const HomeScreen = () => {
       </Row>
       <Row className="justify-content-center text-center">
         <Col>
-          <Button className="btn-start">Làm bài ngay</Button>
+          <Button className="btn-start" onClick={submitHandler}>Làm bài ngay</Button>
         </Col>
       </Row>
       <Row className="justify-content-center">
