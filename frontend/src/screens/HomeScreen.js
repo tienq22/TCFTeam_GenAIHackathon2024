@@ -1,11 +1,17 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
 import { Button, Container, Row, Col } from 'react-bootstrap';
+import { toast } from "react-toastify";
+import { useCreateExamMutation } from "../slices/examsApiSlice";
 import "./styles/homeScreen.css";
 
 const HomeScreen = () => {
   return (
     <Container className="home-screen-container">
+      <Row className="justify-content-center text-center">
+        <Col>
+          <h1 className="logo">ElisAI</h1>
+        </Col>
+      </Row>
       <Row className="justify-content-center text-center">
         <Col>
           <h2 className="subtitle">Đề thi Tiếng anh THPT Quốc Gia</h2>
