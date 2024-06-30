@@ -17,11 +17,14 @@ import RegisterScreen from "./screens/RegisterScreen";
 import TakeExamScreen from "./screens/TakeExamScreen";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import ResultScreen from "./screens/ResultScreen";
 import DetailedAnswersScreen from "./screens/DetailedAnswersScreen";
 =======
 =======
 >>>>>>> f86d90e ([FE] Make suport js and css TakeExamScreen)
+=======
+>>>>>>> 297cd9b ([FE] Make suport js and css TakeExamScreen)
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -49,6 +52,7 @@ root.render(
 
 
 <<<<<<< HEAD
+
 
 
 
