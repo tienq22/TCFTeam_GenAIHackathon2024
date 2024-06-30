@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Container, Row, Col } from 'react-bootstrap';
-//import '../styles/homeScreen.css';
+import "./styles1/homeScreen.css";
 
 const HomeScreen = () => {
   const submitHandler = () => {};
