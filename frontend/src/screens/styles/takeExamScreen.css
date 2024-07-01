@@ -1,5 +1,4 @@
 /* TakeExamScreen.css */
-
 .exam-container {
   display: flex;
   flex-direction: column;
@@ -33,7 +32,7 @@
 
 .logout-btn {
   padding: 10px 20px;
-  background-color: #ff6b6b;
+  background-color: #6c75d7;
   border: none;
   color: white;
   cursor: pointer;
@@ -90,7 +89,7 @@
 .submit-btn {
   padding: 10px 20px;
   margin-bottom: 20px;
-  background-color: #6c757d;
+  background-color: #ff6b6b;
   border: none;
   color: white;
   cursor: pointer;
@@ -137,7 +136,6 @@
   max-height: 60vh;
   overflow-y: auto;
 }
-
 .questionType {
   font-weight: bold;
   font-style: italic;

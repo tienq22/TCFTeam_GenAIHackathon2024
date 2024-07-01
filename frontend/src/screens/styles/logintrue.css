@@ -1,6 +1,6 @@
 body {
   background-color: #f9f5f7;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 /* Set Padding*/
 .login-wrapper {
@@ -9,7 +9,7 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 9rem;
-  margin-top: -100px; 
+  margin-top: -100px;
 }
 
 .login-container {
@@ -23,7 +23,7 @@ body {
 }
 
 .logo {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: "Comic Sans MS", cursive, sans-serif;
   color: #ff66a5;
   font-size: 2.5rem;
   text-align: center;
@@ -34,7 +34,7 @@ body {
   text-align: left;
   margin-bottom: 2rem;
 }
- /* "Đăng nhập ngay" */
+/* "Đăng nhập ngay" */
 .login-header h1 {
   font-size: 2.5rem;
   font-weight: bold;
@@ -57,8 +57,8 @@ body {
 }
 /*Nhap thong tin */
 .custom-placeholder::placeholder {
-  font-size: 0.9rem; 
-  color: #6c757d; 
+  font-size: 0.9rem;
+  color: #6c757d;
 }
 
 .btn-login {
@@ -85,8 +85,8 @@ body {
 }
 /* "Đăng ký" */
 .register-link a {
-  color: #0000FF; 
-  text-decoration: underline; 
+  color: #0000ff;
+  text-decoration: underline;
 }
 
 .register-link a:hover {
@@ -104,12 +104,12 @@ body {
 /*"Quên mật khẩu" */
 .forgot-password {
   text-align: right;
-  margin-bottom: 1rem; 
+  margin-bottom: 1rem;
   margin-top: -20px;
 }
 /*"Quên mật khẩu" */
 .forgot-password a {
-  color: #0000FF;
+  color: #0000ff;
   text-decoration: underline;
 }
 

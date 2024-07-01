@@ -28,7 +28,7 @@ const examSchemaConfig = `{
                   },
                   "options": {
                     "type": "array",
-                    "description": "List of options containing opening and closing HTML <u> tags to indicate the underlined part.",
+                    "description": "List of options containing opening and closing HTML <strong> and <u> tags to indicate the underlined part.",
                     "items": {
                       "type": "string",
                       "description": "The option that starts with A., B., C., or D."
@@ -183,7 +183,7 @@ const examSchemaConfig = `{
                 "properties": {
                   "question": {
                     "type": "string",
-                    "description": "The sentence containing opening and closing HTML <u> tags to indicate the underlined part."
+                    "description": "The sentence containing opening and closing HTML <strong> and <u> tags to indicate the underlined part."
                   },
                   "options": {
                     "type": "array",
@@ -236,7 +236,7 @@ const examSchemaConfig = `{
                 "properties": {
                   "question": {
                     "type": "string",
-                    "description": "The sentence containing opening and closing HTML <u> tags to indicate the underlined part."
+                    "description": "The sentence containing opening and closing HTML <strong> and <u> tags to indicate the underlined part."
                   },
                   "options": {
                     "type": "array",
@@ -571,7 +571,7 @@ const examSchemaConfig = `{
                 "properties": {
                   "question": {
                     "type": "string",
-                    "description": "The sentence with multiple opening and closing <u> tags to indicate the underlined part that needs correction."
+                    "description": "The sentence containing opening and closing HTML <strong> and <u> tags to indicate the underlined part that needs correction."
                   },
                   "options": {
                     "type": "array",

@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { Form } from "react-bootstrap";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import CountdownTimer from "../components/CountDownTimer";
@@ -7,28 +8,38 @@ import { useGetExamDetailsQuery } from "../slices/examsApiSlice";
 import "./styles/takeExamScreen.css";
 
 const TakeExamScreen = () => {
-  const navigate = useNavigate();
   const { id: examId } = useParams();
   const { data: examData, isLoading, error } = useGetExamDetailsQuery(examId);
 
-  const [answers, setAnswers] = useState([]);
+  const [answers, setAnswers] = useState({});
+
+  let questionNum = 0;
 
   const renderQuestions = (questions) =>
     questions.map((question) => (
       <div key={question._id}>
-        <p>{question.question}</p>
+        <span>
+          <strong>Question {++questionNum}</strong>:{" "}
+          <span dangerouslySetInnerHTML={{ __html: question.question }}></span>
+        </span>
+
         <ul className='options'>
           {question.options.map((option, i) => (
-            <li key={i}>{option}</li>
+            <li dangerouslySetInnerHTML={{ __html: option }} key={i}></li>
           ))}
         </ul>
       </div>
     ));
 
   const handleAnswerChange = (questionNum, option) => {
-    const updatedAnswers = [...answers];
-    updatedAnswers[questionNum - 1] = option;
+    const updatedAnswers = { ...answers };
+    updatedAnswers[questionNum] = option;
+    console.log(updatedAnswers);
     setAnswers(updatedAnswers);
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
   };
 
   return isLoading ? (
@@ -51,13 +62,13 @@ const TakeExamScreen = () => {
         <div className='question-section sidebar'>
           {Object.keys(examData.parts).map((partKey) => (
             <div key={partKey}>
-              <text className='questionType'>
+              <p className='questionType'>
                 {examData.parts[partKey].questionType}
-              </text>
-              {renderQuestions(examData.parts[partKey].questions)}
+              </p>
               {examData.parts[partKey].passage && (
-                <text>{examData.parts[partKey].passage}</text>
+                <p>{examData.parts[partKey].passage}</p>
               )}
+              {renderQuestions(examData.parts[partKey].questions)}
             </div>
           ))}
         </div>
@@ -67,21 +78,26 @@ const TakeExamScreen = () => {
             <div className='time'>{<CountdownTimer />}</div>
           </div>
           <button className='submit-btn'>NỘP BÀI</button>
-          {[...Array(50).keys()].map((num) => (
-            <div key={num} className='question-item'>
-              <span>{num + 1}</span>
-              <div className='options'>
-                {["A", "B", "C", "D"].map((option, i) => (
-                  <button
-                    key={option}
-                    onClick={() => handleAnswerChange(num + 1, option)}
-                  >
-                    {option}
-                  </button>
-                ))}
+          <Form onSubmit={submitHandler}>
+            {[...Array(50).keys()].map((num) => (
+              <div key={num} className='question-item'>
+                <span>{num + 1}</span>
+                <div className='options'>
+                  {["A", "B", "C", "D"].map((option, i) => (
+                    <Form.Check
+                      inline
+                      label={option}
+                      type='radio'
+                      name={`question-${num}`}
+                      key={i}
+                      checked={answers[num] === i}
+                      onChange={() => handleAnswerChange(num, i)}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </Form>
         </div>
       </div>
     </div>
