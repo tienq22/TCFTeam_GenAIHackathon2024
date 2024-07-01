@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button, Modal } from "react-bootstrap";
 import { useGetExamDetailedAnswersQuery } from "../slices/takeExamApiSlice";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
@@ -10,6 +10,33 @@ const DetailedAnswersScreen = () => {
   const { data, isLoading, error } = useGetExamDetailedAnswersQuery(takenId);
 
   const [correctAnswers, setCorrectAnswers] = useState({});
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState("");
+
+  useEffect(() => {
+    if (!isLoading) {
+      const { parts } = data.exam;
+
+      const temp = [];
+
+      for (let i = 1; i <= 12; i++) {
+        temp.push(
+          ...parts[`part${i}`].questions.map((q) => ({
+            correctOption: q.correctOption,
+            answerDetail: q.answerDetail,
+          }))
+        );
+      }
+
+      let updatedCorrectAnswers = { ...correctAnswers };
+
+      temp.forEach(({ correctOption, answerDetail }, index) => {
+        updatedCorrectAnswers[index] = { correctOption, answerDetail };
+      });
+
+      setCorrectAnswers(updatedCorrectAnswers);
+    }
+  }, [isLoading]);
 
   const renderQuestions = (questions) =>
     questions.map((question) => (
@@ -30,27 +57,15 @@ const DetailedAnswersScreen = () => {
   const options = ["A", "B", "C", "D"];
   let questionNum = 0;
 
-  useEffect(() => {
-    if (!isLoading) {
-      const { parts } = data.exam;
+  const showModalHandler = (content) => {
+    setShowModal(true);
+    setModalContent(content);
+  };
 
-      console.log(parts);
-
-      const temp = [];
-
-      for (let i = 1; i <= 12; i++) {
-        temp.push(...parts[`part${i}`].questions.map((q) => q.correctOption));
-      }
-
-      let updatedCorrectAnswers = { ...correctAnswers };
-
-      temp.forEach((opt, index) => {
-        updatedCorrectAnswers[index] = opt;
-      });
-
-      setCorrectAnswers(updatedCorrectAnswers);
-    }
-  }, [isLoading]);
+  const closeModalHandler = () => {
+    setShowModal(false);
+    setModalContent("");
+  };
 
   return isLoading ? (
     <Loader />
@@ -83,20 +98,29 @@ const DetailedAnswersScreen = () => {
               <Col>{num + 1}</Col>
 
               <Col>
-                {data.userAnswers[num] !== undefined &&
-                data.userAnswers[num] !== null ? (
+                {data.userAnswers?.[num] !== undefined &&
+                data.userAnswers?.[num] !== null ? (
                   <Button
                     variant={
-                      data.userAnswers[num] === correctAnswers[num]
+                      data.userAnswers?.[num] ===
+                      correctAnswers[num]?.correctOption
                         ? "success"
                         : "danger"
                     }
+                    onClick={() =>
+                      showModalHandler(correctAnswers[num]?.answerDetail)
+                    }
                   >
-                    {options[data.userAnswers[num]]}
+                    {options[data.userAnswers?.[num]]}
                   </Button>
                 ) : (
-                  <Button variant='danger'>
-                    {options[correctAnswers[num]]}
+                  <Button
+                    variant='danger'
+                    onClick={() =>
+                      showModalHandler(correctAnswers[num]?.answerDetail)
+                    }
+                  >
+                    {options[correctAnswers[num]?.correctOption]}
                   </Button>
                 )}
               </Col>
@@ -104,6 +128,17 @@ const DetailedAnswersScreen = () => {
           ))}
         </div>
       </div>
+      <Modal size='lg' centered show={showModal} onHide={closeModalHandler}>
+        <Modal.Header>
+          <Modal.Title>Giải thích chi tiết</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{modalContent}</Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={closeModalHandler}>
+            Đóng
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
