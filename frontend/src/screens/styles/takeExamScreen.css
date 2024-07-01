@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* TakeExamScreen.css */
 .exam-container {
   display: flex;
@@ -148,6 +149,8 @@
 >>>>>>> af15e36 ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
 /* TakeExamScreen.css */
 
+=======
+>>>>>>> 68eea1e ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
 .exam-container {
     display: flex;
     flex-direction: column;
@@ -155,13 +158,15 @@
     font-family: Arial, sans-serif;
   }
   
+  /*MÃ ĐỀ THI*/
   .header {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #dee2e6;
+    padding: 15px;
+    background-color: #f2e9f1be;
+    border-bottom: 0.5px solid #dee2e6;
+    border-radius: 10px;
   }
   
   .title {
@@ -176,15 +181,18 @@
   
   .user-icon {
     margin-right: 10px;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bold; /* In đậm chữ */
   }
   
+  /*KẾT THÚC*/
   .logout-btn {
     padding: 10px 20px;
-    background-color: #ff6b6b;
-    border: none;
+    background-color: #ff66a5;
+    border: 8px;
     color: white;
-    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold; /* In đậm chữ */
   }
   
   .exam-content {
@@ -194,12 +202,24 @@
     margin: 20px;
   }
   
+  /*ĐỀ BÀI*/
   .question-section {
-    flex: 3;
+    flex: 3.25;
     padding: 20px;
-    background-color: #fff;
+    background-color: #f2e9f1;
     border: 1px solid #dee2e6;
     border-radius: 8px;
+    box-sizing: border-box;
+    text-align: left;
+  }
+  
+  .question-scroll {
+    max-height: 70vh; /* Chiều cao tối đa cho phần đề thi */
+    overflow-y: auto; /* Thanh cuộn dọc cho phần đề thi */
+  }
+  
+  .question-section .question-item {
+    margin-bottom: 20px;
   }
   
   .question-section h3 {
@@ -210,10 +230,25 @@
   .options {
     list-style-type: none;
     padding: 0;
+    margin: 0;
   }
   
-  .options li {
+  .option-item {
     margin-bottom: 10px;
+  }
+  
+  .option-button {
+    padding: 5px 10px;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    cursor: pointer;
+    min-width: 50px;
+    text-align: center;
+    border-radius: 50%; /* Hình tròn */
+  }
+  
+  .option-button:hover {
+    background-color: #e9ecef;
   }
   
   .sidebar {
@@ -222,11 +257,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: #f2e9f1; /* Background cho phần đáp án bên phải */
+    padding: 25px; /* Padding cho phần đáp án bên phải */
+    border-radius: 10px; /* Thêm bo góc */
+    box-sizing: border-box;
   }
   
   .timer {
     font-size: 18px;
     margin-bottom: 20px;
+    font-weight: bold; /* In đậm chữ */
   }
   
   .time {
@@ -235,13 +277,15 @@
     color: #ff6b6b;
   }
   
+  /*NỘP BÀI*/
   .submit-btn {
     padding: 10px 20px;
     margin-bottom: 20px;
-    background-color: #6c757d;
-    border: none;
+    background-color: #abacb1;
+    border: 8px;
     color: white;
-    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold; /* In đậm chữ */
   }
   
   .question-list {
@@ -250,39 +294,66 @@
     width: 100%;
   }
   
-  .question-item {
+  /*ĐÁP ÁN*/
+  .question-item-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .question-box {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    align-items: center;
+    width: 100%;
     padding: 10px;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
+    background-color: #e8e4e9;
+    border: 2px solid #195592;
     border-radius: 8px;
   }
-  
-  .options button {
-    margin: 0 5px;
-    padding: 5px 10px;
-    background-color: #ffffff;
-    border: 1px solid #dee2e6;
-    cursor: pointer;
-  }
-  
-  .options button:hover {
-    background-color: #e9ecef;
-  }
-  .sidebar {
-    flex: 1;
-    margin-left: 20px;
+  /*SO THU TU DAP AN*/
+  .question-number {
+    flex: 0 0 40px;
+    text-align: center;
+    border-radius: 20%; /* Hình tròn */
+    width: 40px;
+    height: 35px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    max-height: 70vh; /* Chiều cao tối đa cho sidebar */
-    overflow-y: auto; /* Kích hoạt thanh cuộn dọc */
+    background-color: #abacb1;
+    border: 1px solid #195592;
   }
   
   .question-list-scroll {
+<<<<<<< HEAD
     max-height: 60vh; /* Chiều cao tối đa cho danh sách câu hỏi */
     overflow-y: auto; /* Kích hoạt thanh cuộn dọc cho danh sách câu hỏi */
   }
 >>>>>>> f4e8046 (Linh)
+=======
+    max-height: 70vh; /* Chiều cao tối đa cho phần đề thi */
+    overflow-y: auto; /* Thanh cuộn dọc cho phần đề thi */
+  }
+  
+  .options-right {
+    display: flex;
+  }
+  /*ĐÁP ÁN A,B,C,D*/
+  .options-right button {
+    margin: 0 7px;
+    padding: 5px;
+    background-color: #ffffff;
+    border: 1px solid #195592;
+    cursor: pointer;
+    min-width: 40px;
+    text-align: center;
+    border-radius: 20%; /* Hình tròn */
+  }
+  
+  .options-right button:hover {
+    background-color: #e9ecef;
+  }
+  
+>>>>>>> 68eea1e ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
