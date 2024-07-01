@@ -86,7 +86,10 @@ const TakeExamScreen = () => {
         </div>
       </div>
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 39c448e2d387d0bf36191d37a343614cbb3a0e30
   );
 };
 
