@@ -45,6 +45,7 @@ root.render(
 
 
 
+<<<<<<< HEAD
 
 
 /*import React from "react";
@@ -90,3 +91,5 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
+=======
+>>>>>>> 6ceba03 (Updae css)

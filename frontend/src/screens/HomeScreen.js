@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import { toast } from "react-toastify";
 import { useCreateExamMutation } from "../slices/examsApiSlice";
-import Loader from '../components/Loader'; // Đảm bảo bạn đã nhập đúng đường dẫn của Loader
 import "./styles/homeScreen.css";
 
 
@@ -12,16 +11,16 @@ const HomeScreen = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    setLoading(true); // Bắt đầu loading khi submit
     try {
       //const { examId } = await createExam().unwrap();
+
       const examId = "668187dcc2b219223c851f64"
+      
       if (examId) {
         navigate(`/take-exam/${examId}`);
         toast.success("Exam created successfully");
       }
     } catch (error) {
-      setLoading(false); // Dừng loading nếu có lỗi
       toast.error(error?.data?.message);
     }
   };
@@ -50,7 +49,6 @@ const HomeScreen = () => {
           )}
 =======
           <Button className="btn-start" onClick={submitHandler}>Làm bài ngay</Button>
-          {/* {examId && <Loader />} */}
         </Col>
       </Row>
       <Row className='justify-content-center'>
