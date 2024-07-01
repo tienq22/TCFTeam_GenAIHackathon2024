@@ -114,7 +114,7 @@ const getExamDetailedAnswers = asyncHandler(async (req, res) => {
 
     res.json({
       userAnswers: taken.userAnswers,
-      ...exam,
+      exam,
     });
   } else {
     res.status(404);
