@@ -43,13 +43,20 @@ const LoginScreen = () => {
 
   return (
     //<FormContainer>
+<<<<<<< HEAD
     <div className='login-wrapper'>
       <div className='login-container'>
         <div className='login-header'>
+=======
+    <div className="login-wrapper">
+      <div className="login-container">
+        <div className="login-header">
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
           <h1>Đăng nhập ngay!!</h1>
           <p>Chào mừng bạn quay trở lại 👋</p>
         </div>
         <Form onSubmit={submitHandler}>
+<<<<<<< HEAD
           <Form.Group controlId='formEmail'>
             <Form.Label>Email</Form.Label>
             <Form.Control
@@ -77,20 +84,60 @@ const LoginScreen = () => {
           </div>
 
           <Button variant='primary' type='submit' className='btn-login'>
+=======
+          <Form.Group controlId="formEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Nhập địa chỉ Email của bạn"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="custom-placeholder"
+            />
+          </Form.Group>
+          <Form.Group controlId="formPassword">
+            <Form.Label>Mật khẩu</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Nhập mật khẩu của bạn"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="custom-placeholder"
+            />
+          </Form.Group>
+
+          <div className="d-flex justify-content-between align-items-center forgot-password">
+            <Form.Check type="checkbox" label="Ghi nhớ mật khẩu" />
+            <a href="#forgot-password">Quên mật khẩu?</a>
+          </div>
+
+          <Button variant="primary" type="submit" className="btn-login">
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
             Đăng Nhập
           </Button>
 
           {isLoading && <Loader />}
 
+<<<<<<< HEAD
           <Row className='py-3'>
             <Col className='register-link'>
               Nếu bạn chưa có tài khoản? <Link to='/register'>Đăng ký</Link>
+=======
+          <Row className="py-3">
+            <Col className="register-link">
+              Nếu bạn chưa có tài khoản? <Link to="/register">Đăng ký</Link>
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
             </Col>
           </Row>
         </Form>
       </div>
+<<<<<<< HEAD
       <div className='image-container'>
         <img src='/login-image.png' alt='Login Illustration' />
+=======
+      <div className="image-container">
+        <img src="/login-image.png" alt="Login Illustration" />
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
       </div>
     </div>
   );

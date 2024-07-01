@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 .navbar {
   background-color: #000000; /* Màu đen */
@@ -8,6 +9,8 @@
 >>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
 =======
 >>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
+=======
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
 
 .home-screen-container {
   background-color: #f9f5f7;
@@ -20,7 +23,11 @@
 }
 
 .logo {
+<<<<<<< HEAD
   font-family: "Comic Sans MS", cursive, sans-serif;
+=======
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
   color: #ff66a5;
   font-size: 3rem;
   margin-bottom: 2rem;

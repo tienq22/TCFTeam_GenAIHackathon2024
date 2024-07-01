@@ -52,8 +52,12 @@ root.render(
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
+=======
+=======
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
 
 
 /*import React from "react";
@@ -73,7 +77,10 @@ import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
 import SubmitScreen from './screens/SubmitScreen';
 import RegisterScreen from "./screens/RegisterScreen";
+<<<<<<< HEAD
 >>>>>>> f4e8046 (Linh)
+=======
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -83,9 +90,12 @@ const router = createBrowserRouter(
 
       <Route path='' element={<PrivateRoute />}>
         <Route path='/main' element={<HomeScreen />} />
+<<<<<<< HEAD
         <Route path='/take-exam/:id' element={<TakeExamScreen />} />
         <Route path='/result/:id' element={<ResultScreen />} />
         <Route path='/result/:id/details' element={<DetailedAnswersScreen />} />
+=======
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
       </Route>
     </Route>
   )
@@ -99,5 +109,10 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
+<<<<<<< HEAD
 =======
 >>>>>>> 6ceba03 (Updae css)
+=======
+ */
+>>>>>>> 39c448e2d387d0bf36191d37a343614cbb3a0e30
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2

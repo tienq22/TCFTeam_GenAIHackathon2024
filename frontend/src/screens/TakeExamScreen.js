@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useState } from "react";
 import { useSelector } from "react-redux";
 =======
@@ -93,6 +94,9 @@ import React, { useState, useEffect } from "react";
 =======
 import React, { useState, useEffect } from "react";
 >>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
+=======
+import React, { useState, useEffect } from "react";
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
 import { useNavigate, useParams } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import Loader from "../components/Loader";
@@ -105,9 +109,12 @@ import { useGetExamDetailsQuery } from "../slices/examsApiSlice";
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useSubmitExamMutation } from "../slices/takeExamApiSlice";
 import "./styles/takeExamScreen.css";
 =======
+=======
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
 import './styles/takeExamScreen.css';
 
 // function processData(data) {
@@ -265,6 +272,35 @@ const TakeExamScreen = () => {
     ));
   }
 
+  const [timeLeft, setTimeLeft] = useState(3600); // Set thời gian làm bài là 1 giờ (3600 giây)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prevTime) => prevTime > 0 ? prevTime - 1 : 0);
+    }, 1000);
+
+    return () => clearInterval(timer); // Cleanup interval on component unmount
+  }, []);
+
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+  };
+
+  function renderQuestions(questions) {
+    return questions.map((question, index) => (
+      <div key={index} className="question-item">
+        <p>{question.question}</p>
+        <ul className="options">
+          {question.options.map((option, i) => (
+            <li key={i} className="option-item">{option}</li>
+          ))}
+        </ul>
+      </div>
+    ));
+  }
+
   return isLoading ? (
     <Loader />
   ) : error ? (
@@ -272,6 +308,7 @@ const TakeExamScreen = () => {
       {error?.status} {JSON.stringify(error?.data)}
     </Message>
   ) : (
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -293,12 +330,18 @@ const TakeExamScreen = () => {
 =======
         <h1 className="title">MÃ ĐỀ THI: E001-2024</h1>
 >>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
+=======
+    <div className="exam-container">
+      <div className="header">
+        <h1 className="title">MÃ ĐỀ THI: E001-2024</h1>
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
         <div className="user-info">
           <span className="user-icon">User</span>
           <button className="logout-btn">KẾT THÚC</button>
         </div>
       </div>
       <div className="exam-content">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <div className="col col-half question-section sidebar">
@@ -371,6 +414,8 @@ const TakeExamScreen = () => {
       <div className="exam-content">
 =======
 >>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
+=======
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
         <div className="question-section">
           <div className="question-scroll">
             {Object.keys(examData.parts).map((partKey) => (
@@ -380,6 +425,7 @@ const TakeExamScreen = () => {
               </div>
             ))}
           </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         <div className="question-section sidebar">
@@ -420,10 +466,13 @@ const TakeExamScreen = () => {
 >>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
 =======
 >>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
+=======
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
         </div>
         <div className="sidebar">
           <div className="timer">
             <span>Thời gian còn lại:</span>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -477,6 +526,8 @@ const TakeExamScreen = () => {
                     </button>
 >>>>>>> 6ceba03 (Updae css)
 =======
+=======
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
             <div className="time">{formatTime(timeLeft)}</div>
           </div>
           <button className="submit-btn">NỘP BÀI</button>
@@ -487,6 +538,7 @@ const TakeExamScreen = () => {
                 <div className="options-right">
                   {['A', 'B', 'C', 'D'].map((option) => (
                     <button key={option} className="option-button-right">{option}</button>
+<<<<<<< HEAD
 >>>>>>> b12cae7 ( [FE] update js, css take Exam)
 =======
 >>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
@@ -497,6 +549,8 @@ const TakeExamScreen = () => {
                   {['A', 'B', 'C', 'D'].map((option) => (
                     <button key={option} className="option-button-right">{option}</button>
 >>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
+=======
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
                   ))}
                 </div>
               </div>
@@ -505,6 +559,7 @@ const TakeExamScreen = () => {
         </div>
       </div>
     </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -523,6 +578,11 @@ const TakeExamScreen = () => {
 >>>>>>> b12cae7 ( [FE] update js, css take Exam)
 =======
 >>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
+=======
+
+=======
+>>>>>>> 39c448e2d387d0bf36191d37a343614cbb3a0e30
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
   );
 };
 

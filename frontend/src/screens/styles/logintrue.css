@@ -1,6 +1,10 @@
 body {
   background-color: #f9f5f7;
+<<<<<<< HEAD
   font-family: "Arial", sans-serif;
+=======
+  font-family: 'Arial', sans-serif;
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
 }
 /* Set Padding*/
 .login-wrapper {
@@ -9,7 +13,11 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 9rem;
+<<<<<<< HEAD
   margin-top: -100px;
+=======
+  margin-top: -100px; 
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
 }
 
 .login-container {
@@ -23,7 +31,11 @@ body {
 }
 
 .logo {
+<<<<<<< HEAD
   font-family: "Comic Sans MS", cursive, sans-serif;
+=======
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
   color: #ff66a5;
   font-size: 2.5rem;
   text-align: center;
@@ -34,7 +46,11 @@ body {
   text-align: left;
   margin-bottom: 2rem;
 }
+<<<<<<< HEAD
 /* "Đăng nhập ngay" */
+=======
+ /* "Đăng nhập ngay" */
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
 .login-header h1 {
   font-size: 2.5rem;
   font-weight: bold;
@@ -57,8 +73,13 @@ body {
 }
 /*Nhap thong tin */
 .custom-placeholder::placeholder {
+<<<<<<< HEAD
   font-size: 0.9rem;
   color: #6c757d;
+=======
+  font-size: 0.9rem; 
+  color: #6c757d; 
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
 }
 
 .btn-login {
@@ -85,8 +106,13 @@ body {
 }
 /* "Đăng ký" */
 .register-link a {
+<<<<<<< HEAD
   color: #0000ff;
   text-decoration: underline;
+=======
+  color: #0000FF; 
+  text-decoration: underline; 
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
 }
 
 .register-link a:hover {
@@ -104,12 +130,20 @@ body {
 /*"Quên mật khẩu" */
 .forgot-password {
   text-align: right;
+<<<<<<< HEAD
   margin-bottom: 1rem;
+=======
+  margin-bottom: 1rem; 
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
   margin-top: -20px;
 }
 /*"Quên mật khẩu" */
 .forgot-password a {
+<<<<<<< HEAD
   color: #0000ff;
+=======
+  color: #0000FF;
+>>>>>>> 40414784b14e236386caf1f76fe349b24f3125a2
   text-decoration: underline;
 }
 
