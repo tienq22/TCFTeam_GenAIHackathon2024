@@ -9,7 +9,7 @@ export const takeExamApiSlice = apiSlice.injectEndpoints({
         method: "POST",
         body: { ...examSubmission },
       }),
-      invalidatesTags: ["Exam"],
+      invalidatesTags: ["TakeExam"],
     }),
 
     getExamScore: builder.query({
@@ -28,5 +28,8 @@ export const takeExamApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useCreateExamMutation, useGetExamDetailsQuery } =
-  takeExamApiSlice;
+export const {
+  useSubmitExamMutation,
+  useGetExamScoreQuery,
+  useGetExamDetailedAnswersQuery,
+} = takeExamApiSlice;

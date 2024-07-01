@@ -1,17 +1,24 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import CountdownTimer from "../components/CountDownTimer";
+import { toast } from "react-toastify";
 import { useGetExamDetailsQuery } from "../slices/examsApiSlice";
+import { useSubmitExamMutation } from "../slices/takeExamApiSlice";
 import "./styles/takeExamScreen.css";
 
 const TakeExamScreen = () => {
+  const navigate = useNavigate();
   const { id: examId } = useParams();
   const { data: examData, isLoading, error } = useGetExamDetailsQuery(examId);
+  const [submitExam, { isLoading: examSubmitLoading }] =
+    useSubmitExamMutation();
 
-  const [answers, setAnswers] = useState({});
+  const [userAnswers, setUserAnswers] = useState({});
+  const { userInfo } = useSelector((state) => state.auth);
 
   let questionNum = 0;
 
@@ -32,13 +39,25 @@ const TakeExamScreen = () => {
     ));
 
   const handleAnswerChange = (questionNum, option) => {
-    const updatedAnswers = { ...answers };
+    const updatedAnswers = { ...userAnswers };
     updatedAnswers[questionNum] = option;
-    setAnswers(updatedAnswers);
+    setUserAnswers(updatedAnswers);
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
+    try {
+      const { takenId } = await submitExam({
+        userId: userInfo._id,
+        examId,
+        submitDate: new Date(),
+        userAnswers,
+      }).unwrap();
+      toast.success("Đã nộp bài thành công!");
+      navigate(`/result/${takenId}`);
+    } catch (error) {
+      toast.error(error?.data?.message);
+    }
   };
 
   return isLoading ? (
@@ -77,9 +96,13 @@ const TakeExamScreen = () => {
             <div className='time'>{<CountdownTimer />}</div>
           </div>
           <Form onSubmit={submitHandler}>
-            <button type='submit' className='submit-btn'>
-              NỘP BÀI
-            </button>
+            {examSubmitLoading ? (
+              <Loader />
+            ) : (
+              <button type='submit' className='submit-btn'>
+                NỘP BÀI
+              </button>
+            )}
             {[...Array(50).keys()].map((num) => (
               <div key={num} className='question-item'>
                 <span>{num + 1}</span>
@@ -91,7 +114,7 @@ const TakeExamScreen = () => {
                       type='radio'
                       name={`question-${num}`}
                       key={i}
-                      checked={answers[num] === i}
+                      checked={userAnswers[num] === i}
                       onChange={() => handleAnswerChange(num, i)}
                     />
                   ))}

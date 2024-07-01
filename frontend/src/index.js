@@ -15,6 +15,7 @@ import HomeScreen from "./screens/HomeScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import TakeExamScreen from "./screens/TakeExamScreen";
+import ResultScreen from "./screens/ResultScreen";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +26,7 @@ const router = createBrowserRouter(
       <Route path='' element={<PrivateRoute />}>
         <Route path='/main' element={<HomeScreen />} />
         <Route path='/take-exam/:id' element={<TakeExamScreen />} />
+        <Route path='/result/:id' element={<ResultScreen />} />
       </Route>
     </Route>
   )
