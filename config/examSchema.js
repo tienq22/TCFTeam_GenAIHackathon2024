@@ -1,5 +1,5 @@
 const examSchemaConfig = `{
-  "description": "Vietnam University Entrance Examination - English",
+  "description": "Vietnam National High School Graduation Examination - English",
   "type": "object",
   "properties": {
     "parts": {
@@ -10,7 +10,7 @@ const examSchemaConfig = `{
           "properties": {
             "questionType": {
               "type": "string",
-              "description": "Choose the word whose underlined part is pronounced differently from the rest."
+              "description": "Choose the word whose underlined part differs from the other three in pronunciation in each of the following questions."
             },
             "numberOfQuestions": {
               "type": "integer",
@@ -28,18 +28,19 @@ const examSchemaConfig = `{
                   },
                   "options": {
                     "type": "array",
-                    "description": "List of options.",
+                    "description": "List of options containing opening and closing HTML <u> tags to indicate the underlined part.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The option that starts with A., B., C., or D."
                     }
                   },
                   "correctOption": {
-                    "type": "string",
-                    "description": "Correct option."
+                    "type": "number",
+                    "description": "Correct option, from 0 to 3 only."
                   },
                   "answerDetail": {
                     "type": "string",
-                    "description": "Details or explanation for the answer."
+                    "description": "Details or explanation for the answer, in Vietnamese."
                   }
                 },
                 "required": [
@@ -62,7 +63,7 @@ const examSchemaConfig = `{
           "properties": {
             "questionType": {
               "type": "string",
-              "description": "Choose the word that has a different stress pattern from the rest."
+              "description": "Choose the word that differs from the other three in the position of stress in each of the following questions."
             },
             "numberOfQuestions": {
               "type": "integer",
@@ -80,18 +81,19 @@ const examSchemaConfig = `{
                   },
                   "options": {
                     "type": "array",
-                    "description": "List of options.",
+                    "description": "List of options containing only one word, without the ' symbol (apostrophe)",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The option that starts with A., B., C., or D."
                     }
                   },
                   "correctOption": {
-                    "type": "string",
-                    "description": "Correct option."
+                    "type": "number",
+                    "description": "Correct option, from 0 to 3 only."
                   },
                   "answerDetail": {
                     "type": "string",
-                    "description": "Details or explanation for the answer."
+                    "description": "Details or explanation for the answer, in Vietnamese."
                   }
                 },
                 "required": [
@@ -114,7 +116,7 @@ const examSchemaConfig = `{
           "properties": {
             "questionType": {
               "type": "string",
-              "description": "Choose the sentence that best completes the following exchange."
+              "description": "Choose the sentence that best completes each of the following exchanges."
             },
             "numberOfQuestions": {
               "type": "integer",
@@ -134,16 +136,17 @@ const examSchemaConfig = `{
                     "type": "array",
                     "description": "List of options.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The option that starts with A., B., C., or D."
                     }
                   },
                   "correctOption": {
-                    "type": "string",
-                    "description": "Correct option."
+                    "type": "number",
+                    "description": "Correct option, from 0 to 3 only."
                   },
                   "answerDetail": {
                     "type": "string",
-                    "description": "Details or explanation for the answer."
+                    "description": "Details or explanation for the answer, in Vietnamese."
                   }
                 },
                 "required": [
@@ -166,7 +169,7 @@ const examSchemaConfig = `{
           "properties": {
             "questionType": {
               "type": "string",
-              "description": "Choose the word(s) OPPOSITE in meaning to the underlined word(s)"
+              "description": "Choose the word(s) OPPOSITE in meaning to the underlined word(s) in each of the following questions."
             },
             "numberOfQuestions": {
               "type": "integer",
@@ -180,22 +183,23 @@ const examSchemaConfig = `{
                 "properties": {
                   "question": {
                     "type": "string",
-                    "description": "The question."
+                    "description": "The sentence containing opening and closing HTML <u> tags to indicate the underlined part."
                   },
                   "options": {
                     "type": "array",
                     "description": "List of options.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The option that starts with A., B., C., or D."
                     }
                   },
                   "correctOption": {
-                    "type": "string",
-                    "description": "Correct option."
+                    "type": "number",
+                    "description": "Correct option, from 0 to 3 only."
                   },
                   "answerDetail": {
                     "type": "string",
-                    "description": "Details or explanation for the answer."
+                    "description": "Details or explanation for the answer, in Vietnamese."
                   }
                 },
                 "required": [
@@ -218,7 +222,7 @@ const examSchemaConfig = `{
           "properties": {
             "questionType": {
               "type": "string",
-              "description": "Choose the word(s) CLOSEST in meaning to the underlined word(s)."
+              "description": "Choose the word CLOSEST in meaning to the underlined word in each of the following questions."
             },
             "numberOfQuestions": {
               "type": "integer",
@@ -232,22 +236,23 @@ const examSchemaConfig = `{
                 "properties": {
                   "question": {
                     "type": "string",
-                    "description": "The question."
+                    "description": "The sentence containing opening and closing HTML <u> tags to indicate the underlined part."
                   },
                   "options": {
                     "type": "array",
                     "description": "List of options.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The option that starts with A., B., C., or D."
                     }
                   },
                   "correctOption": {
-                    "type": "string",
-                    "description": "Correct option."
+                    "type": "number",
+                    "description": "Correct option, from 0 to 3 only."
                   },
                   "answerDetail": {
                     "type": "string",
-                    "description": "Details or explanation for the answer."
+                    "description": "Details or explanation for the answer, in Vietnamese."
                   }
                 },
                 "required": [
@@ -290,16 +295,17 @@ const examSchemaConfig = `{
                     "type": "array",
                     "description": "List of options.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The option that starts with A., B., C., or D."
                     }
                   },
                   "correctOption": {
-                    "type": "string",
-                    "description": "Correct option."
+                    "type": "number",
+                    "description": "Correct option, from 0 to 3 only."
                   },
                   "answerDetail": {
                     "type": "string",
-                    "description": "Details or explanation for the answer."
+                    "description": "Details or explanation for the answer, in Vietnamese."
                   }
                 },
                 "required": [
@@ -322,7 +328,7 @@ const examSchemaConfig = `{
           "properties": {
             "questionType": {
               "type": "string",
-              "description": "Read the passage and fill in the blanks with suitable word or phrase."
+              "description": "Read the following passage and choose the correct word or phrase that best fits each of the numbered blanks in the passage."
             },
             "numberOfQuestions": {
               "type": "integer",
@@ -346,16 +352,17 @@ const examSchemaConfig = `{
                     "type": "array",
                     "description": "List of options for the blank.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The option that starts with A., B., C., or D."
                     }
                   },
                   "correctOption": {
-                    "type": "string",
-                    "description": "Correct option."
+                    "type": "number",
+                    "description": "Correct option, from 0 to 3 only."
                   },
                   "answerDetail": {
                     "type": "string",
-                    "description": "Details or explanation for the answer."
+                    "description": "Details or explanation for the answer, in Vietnamese."
                   }
                 },
                 "required": [
@@ -379,7 +386,7 @@ const examSchemaConfig = `{
           "properties": {
             "questionType": {
               "type": "string",
-              "description": "Read the passage and answer the questions."
+              "description": "Read the following passage and choose the best answer to each of the questions."
             },
             "numberOfQuestions": {
               "type": "integer",
@@ -403,16 +410,17 @@ const examSchemaConfig = `{
                     "type": "array",
                     "description": "List of options.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The option that starts with A., B., C., or D."
                     }
                   },
                   "correctOption": {
-                    "type": "string",
-                    "description": "Correct option."
+                    "type": "number",
+                    "description": "Correct option, from 0 to 3 only."
                   },
                   "answerDetail": {
                     "type": "string",
-                    "description": "Details or explanation for the answer."
+                    "description": "Details or explanation for the answer, in Vietnamese."
                   }
                 },
                 "required": [
@@ -435,7 +443,7 @@ const examSchemaConfig = `{
           "properties": {
             "questionType": {
               "type": "string",
-              "description": "Read the paired passages and answer the questions."
+              "description": "Read the following paired or multiple passages and choose the best answer to each of the questions."
             },
             "numberOfQuestions": {
               "type": "integer",
@@ -462,16 +470,17 @@ const examSchemaConfig = `{
                     "type": "array",
                     "description": "List of options.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The option that starts with A., B., C., or D."
                     }
                   },
                   "correctOption": {
-                    "type": "string",
-                    "description": "Correct option."
+                    "type": "number",
+                    "description": "Correct option, from 0 to 3 only."
                   },
                   "answerDetail": {
                     "type": "string",
-                    "description": "Details or explanation for the answer."
+                    "description": "Details or explanation for the answer, in Vietnamese."
                   }
                 },
                 "required": [
@@ -495,7 +504,7 @@ const examSchemaConfig = `{
           "properties": {
             "questionType": {
               "type": "string",
-              "description": "Choose the sentence so that it has a similar meaning to the original."
+              "description": "Choose the sentence that is close in meaning to each of the following questions."
             },
             "numberOfQuestions": {
               "type": "integer",
@@ -515,16 +524,17 @@ const examSchemaConfig = `{
                     "type": "array",
                     "description": "List of options.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The option that starts with A., B., C., or D."
                     }
                   },
                   "correctOption": {
-                    "type": "string",
-                    "description": "Correct option."
+                    "type": "number",
+                    "description": "Correct option, from 0 to 3 only."
                   },
                   "answerDetail": {
                     "type": "string",
-                    "description": "Details or explanation for the answer."
+                    "description": "Details or explanation for the answer, in Vietnamese."
                   }
                 },
                 "required": [
@@ -547,7 +557,7 @@ const examSchemaConfig = `{
           "properties": {
             "questionType": {
               "type": "string",
-              "description": "Identify the one underlined word or phrase that must be changed in order for the sentence to be correct."
+              "description": "Choose the underlined part that needs correction in each of the following questions."
             },
             "numberOfQuestions": {
               "type": "integer",
@@ -561,22 +571,23 @@ const examSchemaConfig = `{
                 "properties": {
                   "question": {
                     "type": "string",
-                    "description": "The question."
+                    "description": "The sentence with multiple opening and closing <u> tags to indicate the underlined part that needs correction."
                   },
                   "options": {
                     "type": "array",
                     "description": "List of options.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The option that starts with A., B., C., or D."
                     }
                   },
                   "correctOption": {
-                    "type": "string",
-                    "description": "Correct option."
+                    "type": "number",
+                    "description": "Correct option, from 0 to 3 only."
                   },
                   "answerDetail": {
                     "type": "string",
-                    "description": "Details or explanation for the answer."
+                    "description": "Details or explanation for the answer, in Vietnamese."
                   }
                 },
                 "required": [
@@ -599,7 +610,7 @@ const examSchemaConfig = `{
           "properties": {
             "questionType": {
               "type": "string",
-              "description": "Choose the sentence that best combines each pair of sentences in the following questions"
+              "description": "Choose the sentence that best combines each pair of sentences in the following questions."
             },
             "numberOfQuestions": {
               "type": "integer",
@@ -619,16 +630,17 @@ const examSchemaConfig = `{
                     "type": "array",
                     "description": "List of options.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "The option that starts with A., B., C., or D."
                     }
                   },
                   "correctOption": {
-                    "type": "string",
-                    "description": "Correct option."
+                    "type": "number",
+                    "description": "Correct option, from 0 to 3 only."
                   },
                   "answerDetail": {
                     "type": "string",
-                    "description": "Details or explanation for the answer."
+                    "description": "Details or explanation for the answer, in Vietnamese."
                   }
                 },
                 "required": [

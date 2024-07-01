@@ -5,7 +5,7 @@ const questionSchema = new Schema(
   {
     question: { type: String, required: true },
     options: { type: [String], required: true },
-    correctOption: { type: String, required: true },
+    correctOption: { type: Number, required: true },
     answerDetail: { type: String, required: true },
   },
   { _id: false }
@@ -74,6 +74,10 @@ const examSchema = new Schema(
       part10: { type: partSchema, required: true },
       part11: { type: partSchema, required: true },
       part12: { type: partSchema, required: true },
+    },
+    correctOptions: {
+      type: [Number],
+      required: true,
     },
   },
   { timestamps: true }
