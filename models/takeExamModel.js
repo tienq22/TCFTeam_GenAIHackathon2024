@@ -19,7 +19,7 @@ const takeExamSchema = new Schema(
       required: true,
     },
     userAnswers: {
-      type: [Number],
+      type: Object,
       required: true,
     },
     score: {

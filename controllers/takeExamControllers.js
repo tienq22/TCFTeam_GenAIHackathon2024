@@ -1,7 +1,7 @@
-import asyncHandler from "../middleware/asyncHandler";
-import TakeExam from "../models/takeExamModel";
-import Exam from "../models/examModel";
-import User from "../models/userModel";
+import asyncHandler from "../middleware/asyncHandler.js";
+import TakeExam from "../models/takeExamModel.js";
+import Exam from "../models/examModel.js";
+import User from "../models/userModel.js";
 
 /**
  * @desc Submit exam
@@ -24,24 +24,34 @@ const submitExam = asyncHandler(async (req, res) => {
   }
 
   const { parts } = exam;
-  const correctOptions = [];
+  const temp = [];
+  const correctAnswers = {};
 
   for (let i = 1; i <= 12; i++) {
-    correctOptions.push(
-      ...parts[`part${i}`].questions.map((q) => q.correctOtpion)
-    );
+    temp.push(...parts[`part${i}`].questions.map((q) => q.correctOption));
   }
 
-  let score = 10;
-  let wrongAnswersCount = 0;
-
-  correctOptions.forEach((opt, index) => {
-    if (opt !== userAnswers[index]) {
-      wrongAnswersCount++;
-    }
+  temp.forEach((opt, index) => {
+    correctAnswers[index] = opt;
   });
 
-  score -= 0.2 * wrongAnswersCount;
+  let score = 0;
+  let wrongAnswersCount = 0;
+  let rightAnswersCount = 0;
+
+  for (let key in correctAnswers) {
+    if (
+      userAnswers[key] === null ||
+      userAnswers[key] === undefined ||
+      userAnswers[key] !== correctAnswers[key]
+    ) {
+      wrongAnswersCount++;
+    } else {
+      rightAnswersCount++;
+    }
+  }
+
+  score = 0.2 * rightAnswersCount;
 
   const taken = await TakeExam.create({
     userId,
@@ -49,7 +59,7 @@ const submitExam = asyncHandler(async (req, res) => {
     submitDate,
     userAnswers,
     score,
-    rightAnswersCount: 50 - wrongAnswersCount,
+    rightAnswersCount,
     wrongAnswersCount,
   });
 
@@ -71,12 +81,14 @@ const submitExam = asyncHandler(async (req, res) => {
 const getExamScore = asyncHandler(async (req, res) => {
   const taken = await TakeExam.findById(req.params.id);
 
+  const { _id: takenId, rightAnswersCount, wrongAnswersCount, score } = taken;
+
   if (taken) {
     res.json({
-      takenId: taken._id,
-      rightAnswersCount: taken.rightAnswersCount,
-      wrongAnswersCount: taken.wrongAnswersCount,
-      score: taken.score,
+      takenId,
+      rightAnswersCount,
+      wrongAnswersCount,
+      score,
     });
   } else {
     res.status(404);
