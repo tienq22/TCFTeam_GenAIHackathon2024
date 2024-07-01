@@ -1,10 +1,6 @@
-.navbar {
-  background-color: #000000; /* Màu đen */
-  color: #ffffff; /* Màu chữ trắng nếu cần */
-}
 
 .home-screen-container {
-  background-color: #0f0e0e;
+  background-color: #f9f5f7;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -33,6 +29,7 @@
   margin-bottom: 2rem;
   font-weight: bold; /* In đậm chữ */
 }
+
 /*Làm bài ngay*/
 .btn-start {
   background-color: #ff66a5;
