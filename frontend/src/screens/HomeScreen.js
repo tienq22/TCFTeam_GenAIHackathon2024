@@ -15,8 +15,8 @@ const HomeScreen = () => {
     e.preventDefault();
     setLoading(true); // Bắt đầu loading khi submit
     try {
-      const { examId } = await createExam().unwrap();
-      //const examId = "6682330f9b7e1b17a1f929c6";
+      //const { examId } = await createExam().unwrap();
+      const examId = "6682330f9b7e1b17a1f929c6";
       setLoading(false); // Dừng loading sau khi nhận được examId
       if (examId) {
         navigate(`/exams/${examId}`);
