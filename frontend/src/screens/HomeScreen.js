@@ -15,7 +15,8 @@ const HomeScreen = () => {
     e.preventDefault();
     setLoading(true); // Bắt đầu loading khi submit
     try {
-      const { examId } = await createExam().unwrap();
+      //const { examId } = await createExam().unwrap();
+      const examId = "668187dcc2b219223c851f64"
       if (examId) {
         navigate(`/take-exam/${examId}`);
         toast.success("Exam created successfully");
@@ -50,7 +51,6 @@ const HomeScreen = () => {
           )}
 =======
           <Button className="btn-start" onClick={submitHandler}>Làm bài ngay</Button>
-          { {examId && <Loader />} }
         </Col>
       </Row>
       <Row className='justify-content-center'>

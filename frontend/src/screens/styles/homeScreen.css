@@ -1,13 +1,16 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 .navbar {
   background-color: #000000; /* Màu đen */
   color: #ffffff; /* Màu chữ trắng nếu cần */
 }
 >>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
+=======
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
 
 .home-screen-container {
-  background-color: #0f0e0e;
+  background-color: #f9f5f7;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

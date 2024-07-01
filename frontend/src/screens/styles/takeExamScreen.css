@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 /* TakeExamScreen.css */
 .exam-container {
   display: flex;
@@ -157,6 +158,8 @@
 =======
 /* TakeExamScreen.css */
 
+=======
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
 .exam-container {
 >>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
     display: flex;
@@ -166,23 +169,33 @@
   }
   
 <<<<<<< HEAD
+<<<<<<< HEAD
   /*MÃ ĐỀ THI*/
 =======
 >>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
+=======
+  /*MÃ ĐỀ THI*/
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
   .header {
     display: flex;
     justify-content: space-between;
     width: 100%;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
     padding: 15px;
     background-color: #f2e9f1be;
     border-bottom: 0.5px solid #dee2e6;
     border-radius: 10px;
+<<<<<<< HEAD
 =======
     padding: 20px;
     background-color: #f8f9fa;
     border-bottom: 1px solid #dee2e6;
 >>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
+=======
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
   }
   
   .title {
@@ -198,6 +211,7 @@
   .user-icon {
     margin-right: 10px;
 <<<<<<< HEAD
+<<<<<<< HEAD
     font-size: 20px;
     font-weight: bold; /* In đậm chữ */
   }
@@ -212,15 +226,25 @@
     font-weight: bold; /* In đậm chữ */
 =======
     font-size: 18px;
+=======
+    font-size: 20px;
+    font-weight: bold; /* In đậm chữ */
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
   }
   
+  /*KẾT THÚC*/
   .logout-btn {
     padding: 10px 20px;
-    background-color: #ff6b6b;
-    border: none;
+    background-color: #ff66a5;
+    border: 8px;
     color: white;
+<<<<<<< HEAD
     cursor: pointer;
 >>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
+=======
+    border-radius: 8px;
+    font-weight: bold; /* In đậm chữ */
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
   }
   
   .exam-content {
@@ -230,6 +254,7 @@
     margin: 20px;
   }
   
+<<<<<<< HEAD
 <<<<<<< HEAD
   /*ĐỀ BÀI*/
   .question-section {
@@ -250,13 +275,30 @@
   .question-section .question-item {
     margin-bottom: 20px;
 =======
+=======
+  /*ĐỀ BÀI*/
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
   .question-section {
-    flex: 3;
+    flex: 3.25;
     padding: 20px;
-    background-color: #fff;
+    background-color: #f2e9f1;
     border: 1px solid #dee2e6;
     border-radius: 8px;
+<<<<<<< HEAD
 >>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
+=======
+    box-sizing: border-box;
+    text-align: left;
+  }
+  
+  .question-scroll {
+    max-height: 70vh; /* Chiều cao tối đa cho phần đề thi */
+    overflow-y: auto; /* Thanh cuộn dọc cho phần đề thi */
+  }
+  
+  .question-section .question-item {
+    margin-bottom: 20px;
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
   }
   
   .question-section h3 {
@@ -267,6 +309,7 @@
   .options {
     list-style-type: none;
     padding: 0;
+<<<<<<< HEAD
 <<<<<<< HEAD
     margin: 0;
   }
@@ -290,13 +333,33 @@
   }
   
 =======
+=======
+    margin: 0;
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
   }
   
-  .options li {
+  .option-item {
     margin-bottom: 10px;
   }
   
+<<<<<<< HEAD
 >>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
+=======
+  .option-button {
+    padding: 5px 10px;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    cursor: pointer;
+    min-width: 50px;
+    text-align: center;
+    border-radius: 50%; /* Hình tròn */
+  }
+  
+  .option-button:hover {
+    background-color: #e9ecef;
+  }
+  
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
   .sidebar {
     flex: 1;
     margin-left: 20px;
@@ -304,23 +367,33 @@
     flex-direction: column;
     align-items: center;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
     max-height: 80vh;
     overflow-y: auto;
     background-color: #f2e9f1; /* Background cho phần đáp án bên phải */
     padding: 25px; /* Padding cho phần đáp án bên phải */
     border-radius: 10px; /* Thêm bo góc */
     box-sizing: border-box;
+<<<<<<< HEAD
 =======
 >>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
+=======
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
   }
   
   .timer {
     font-size: 18px;
     margin-bottom: 20px;
 <<<<<<< HEAD
+<<<<<<< HEAD
     font-weight: bold; /* In đậm chữ */
 =======
 >>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
+=======
+    font-weight: bold; /* In đậm chữ */
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
   }
   
   .time {
@@ -329,6 +402,7 @@
     color: #ff6b6b;
   }
   
+<<<<<<< HEAD
 <<<<<<< HEAD
   /*NỘP BÀI*/
   .submit-btn {
@@ -340,14 +414,22 @@
     border-radius: 8px;
     font-weight: bold; /* In đậm chữ */
 =======
+=======
+  /*NỘP BÀI*/
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
   .submit-btn {
     padding: 10px 20px;
     margin-bottom: 20px;
-    background-color: #6c757d;
-    border: none;
+    background-color: #abacb1;
+    border: 8px;
     color: white;
+<<<<<<< HEAD
     cursor: pointer;
 >>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
+=======
+    border-radius: 8px;
+    font-weight: bold; /* In đậm chữ */
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
   }
   
   .question-list {
@@ -357,6 +439,9 @@
   }
   
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
   /*ĐÁP ÁN*/
   .question-item-right {
     display: flex;
@@ -366,6 +451,7 @@
   }
   
   .question-box {
+<<<<<<< HEAD
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -621,38 +707,59 @@
 >>>>>>> 6ceba03 (Updae css)
 =======
   .question-item {
+=======
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    align-items: center;
+    width: 100%;
     padding: 10px;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
+    background-color: #e8e4e9;
+    border: 2px solid #195592;
     border-radius: 8px;
   }
-  
-  .options button {
-    margin: 0 5px;
-    padding: 5px 10px;
-    background-color: #ffffff;
-    border: 1px solid #dee2e6;
-    cursor: pointer;
-  }
-  
-  .options button:hover {
-    background-color: #e9ecef;
-  }
-  .sidebar {
-    flex: 1;
-    margin-left: 20px;
+  /*SO THU TU DAP AN*/
+  .question-number {
+    flex: 0 0 40px;
+    text-align: center;
+    border-radius: 20%; /* Hình tròn */
+    width: 40px;
+    height: 35px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    max-height: 70vh; /* Chiều cao tối đa cho sidebar */
-    overflow-y: auto; /* Kích hoạt thanh cuộn dọc */
+    background-color: #abacb1;
+    border: 1px solid #195592;
   }
   
   .question-list-scroll {
+<<<<<<< HEAD
     max-height: 60vh; /* Chiều cao tối đa cho danh sách câu hỏi */
     overflow-y: auto; /* Kích hoạt thanh cuộn dọc cho danh sách câu hỏi */
   }
 >>>>>>> 277cbda ([FE] Update css for top bar of RegisterScreen, LoginScreen & HomeScreen)
+=======
+    max-height: 70vh; /* Chiều cao tối đa cho phần đề thi */
+    overflow-y: auto; /* Thanh cuộn dọc cho phần đề thi */
+  }
+  
+  .options-right {
+    display: flex;
+  }
+  /*ĐÁP ÁN A,B,C,D*/
+  .options-right button {
+    margin: 0 7px;
+    padding: 5px;
+    background-color: #ffffff;
+    border: 1px solid #195592;
+    cursor: pointer;
+    min-width: 40px;
+    text-align: center;
+    border-radius: 20%; /* Hình tròn */
+  }
+  
+  .options-right button:hover {
+    background-color: #e9ecef;
+  }
+  
+>>>>>>> b5526bc ([FE] Update js & css fol HomeScreen, LoginScreen, TakeExamScreen])
