@@ -1,6 +1,7 @@
 
-//import React from "react";
 import React, { useState, useEffect } from 'react';
+
+import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
@@ -38,6 +39,8 @@ const TakeExamScreen = () => {
  
 
 
+  
+
   return isLoading ? (
     <Loader />
   ) : error ? (
@@ -53,6 +56,7 @@ const TakeExamScreen = () => {
         </div>
       </div>
       <div className="exam-content">
+
         <div className="question-section sidebar">
           <text className="questionType">{examData.parts.part1.questionType}</text>
           {renderQuestions(examData.parts.part1.questions)}
@@ -114,11 +118,7 @@ const TakeExamScreen = () => {
                   >
                     {option}
                     </button>
-                  ))}
-                </div>
-              </div>
-            ))}
-             
+
           </div>
         </div>
       </div>
@@ -127,4 +127,5 @@ const TakeExamScreen = () => {
 };
 
 export default TakeExamScreen;
+
 
