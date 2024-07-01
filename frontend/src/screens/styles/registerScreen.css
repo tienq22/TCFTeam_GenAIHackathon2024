@@ -1,33 +1,33 @@
-.container{
-    background-color: #f5f5f5;
-    width: 100%;
-    padding: 0 -40% ;
+.container {
+  background-color: transparent;
+  width: 100%;
+  padding: 0 20px;
 }
-.col{
-    float: left;
+.col {
+  float: left;
 }
-.col-half{
-    width: 50%;
+.col-half {
+  width: 50%;
 }
-.title-h1{
-    font-size:34px;
-    font-weight: bold;
-    padding: 10px 0;
+.title-h1 {
+  font-size: 34px;
+  font-weight: bold;
+  padding: 10px 0;
 }
-.font-bold{
-    font-weight: bold;
+.font-bold {
+  font-weight: bold;
 }
-.box{
-    background-color: #ffffff;
+.box {
+  background-color: #ffffff;
 }
-.btn-register{
-    background-color: #ff8caa;
-    width: 100%;
-    margin-top: 10px;
-    border: none;
+.btn-register {
+  background-color: #ff8caa;
+  width: 100%;
+  margin-top: 10px;
+  border: none;
 }
-.register-img{
-    width: 120%;
-    padding-left: 50px;
-    margin-top: 120px;
+.register-img {
+  width: 120%;
+  padding-left: 50px;
+  margin-top: 120px;
 }

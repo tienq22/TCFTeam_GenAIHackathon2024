@@ -1,0 +1,144 @@
+/* TakeExamScreen.css */
+
+.exam-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.logout-btn {
+  padding: 10px 20px;
+  background-color: #ff6b6b;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.exam-content {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px;
+}
+
+.question-section {
+  flex: 3;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+}
+
+.question-section h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.options {
+  list-style-type: none;
+  padding: 0;
+}
+
+.options li {
+  margin-bottom: 10px;
+}
+
+.sidebar {
+  flex: 1;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.time {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff6b6b;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  background-color: #6c757d;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.question-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.question-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+}
+
+.options button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  cursor: pointer;
+}
+
+.options button:hover {
+  background-color: #e9ecef;
+}
+.sidebar {
+  flex: 1;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.question-list-scroll {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.questionType {
+  font-weight: bold;
+  font-style: italic;
+}
