@@ -75,10 +75,6 @@ const examSchema = new Schema(
       part11: { type: partSchema, required: true },
       part12: { type: partSchema, required: true },
     },
-    correctOptions: {
-      type: [Number],
-      required: true,
-    },
   },
   { timestamps: true }
 );

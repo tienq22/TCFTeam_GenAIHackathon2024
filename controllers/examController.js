@@ -11,7 +11,6 @@ const createExam = asyncHandler(async (req, res) => {
 
   const examData = {
     parts: {},
-    correctOptions: [],
   };
 
   result.response.forEach((partResponse, index) => {
@@ -20,10 +19,6 @@ const createExam = asyncHandler(async (req, res) => {
       partResponse.candidates[0].content.parts[0].text
     );
     examData.parts[partNumber] = partContent;
-
-    examData.correctOptions.push(
-      ...partContent.questions.map((q) => q.correctOption)
-    );
   });
 
   const exam = await Exam.create(examData);

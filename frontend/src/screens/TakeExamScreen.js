@@ -34,7 +34,6 @@ const TakeExamScreen = () => {
   const handleAnswerChange = (questionNum, option) => {
     const updatedAnswers = { ...answers };
     updatedAnswers[questionNum] = option;
-    console.log(updatedAnswers);
     setAnswers(updatedAnswers);
   };
 
@@ -77,8 +76,10 @@ const TakeExamScreen = () => {
             <span>Thời gian còn lại:</span>
             <div className='time'>{<CountdownTimer />}</div>
           </div>
-          <button className='submit-btn'>NỘP BÀI</button>
           <Form onSubmit={submitHandler}>
+            <button type='submit' className='submit-btn'>
+              NỘP BÀI
+            </button>
             {[...Array(50).keys()].map((num) => (
               <div key={num} className='question-item'>
                 <span>{num + 1}</span>
