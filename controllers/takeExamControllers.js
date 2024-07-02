@@ -9,12 +9,13 @@ import User from "../models/userModel.js";
  * @access Private
  */
 const submitExam = asyncHandler(async (req, res) => {
-  const { userId, examId, submitDate, userAnswers } = req.body;
+  const { examId, submitDate, userAnswers } = req.body;
 
-  const user = await User.findById(userId);
-  if (!user) {
-    res.status(404);
-    throw new Error("User not found");
+  if (!examId || !submitDate || !userAnswers) {
+    res.status(400);
+    throw new Error(
+      "Missing required fields: examId, submitDate, or userAnswers"
+    );
   }
 
   const exam = await Exam.findById(examId);
@@ -24,11 +25,19 @@ const submitExam = asyncHandler(async (req, res) => {
   }
 
   const { parts } = exam;
-  const temp = [];
+  if (!parts) {
+    res.status(400);
+    throw new Error("Exam has no parts defined");
+  }
+
   const correctAnswers = {};
+  const temp = [];
 
   for (let i = 1; i <= 12; i++) {
-    temp.push(...parts[`part${i}`].questions.map((q) => q.correctOption));
+    const part = parts[`part${i}`];
+    if (part && Array.isArray(part.questions)) {
+      temp.push(...part.questions.map((q) => q.correctOption));
+    }
   }
 
   temp.forEach((opt, index) => {
@@ -39,7 +48,7 @@ const submitExam = asyncHandler(async (req, res) => {
   let wrongAnswersCount = 0;
   let rightAnswersCount = 0;
 
-  for (let key in correctAnswers) {
+  Object.keys(correctAnswers).forEach((key) => {
     if (
       userAnswers[key] === null ||
       userAnswers[key] === undefined ||
@@ -49,12 +58,12 @@ const submitExam = asyncHandler(async (req, res) => {
     } else {
       rightAnswersCount++;
     }
-  }
+  });
 
   score = 0.2 * rightAnswersCount;
 
   const taken = await TakeExam.create({
-    userId,
+    userId: req.user._id,
     examId,
     submitDate,
     userAnswers,
@@ -69,7 +78,7 @@ const submitExam = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(400);
-    throw new Error("Invalid exam data");
+    throw new Error("Invalid data. Please try again");
   }
 });
 

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import Loader from "../components/Loader";
@@ -18,7 +17,6 @@ const TakeExamScreen = () => {
     useSubmitExamMutation();
 
   const [userAnswers, setUserAnswers] = useState({});
-  const { userInfo } = useSelector((state) => state.auth);
 
   let questionNum = 0;
 
@@ -48,7 +46,6 @@ const TakeExamScreen = () => {
     e.preventDefault();
     try {
       const { takenId } = await submitExam({
-        userId: userInfo._id,
         examId,
         submitDate: new Date(),
         userAnswers,
